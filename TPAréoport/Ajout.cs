@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aeroport.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace TPAréoport
 {
     public partial class Ajout : Form
     {
+
+
         public Ajout()
         {
             InitializeComponent();
@@ -19,7 +22,10 @@ namespace TPAréoport
 
         private void Enregistrer_Click(object sender, EventArgs e)
         {
-
+            Avion avion = new Avion();
+            avion.Nom = this.NomAvion.Text;
+            AeroportBdd.InsertAvion(avion);
+            DialogResult = DialogResult.OK;
         }
     }
 }

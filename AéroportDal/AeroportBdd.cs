@@ -86,7 +86,7 @@ namespace Aeroport.DAL
             connection.Open();
             command.CommandText = @"SELECT Identifiant, Nom
                 FROM Constructeur 
-                WHERE Identifiant ="+id+";";
+                WHERE Identifiant =" + id + ";";
 
             command.Parameters.AddWithValue("Identifiant", id);
             MySqlDataReader reader = command.ExecuteReader();
@@ -114,7 +114,7 @@ namespace Aeroport.DAL
             connection.Open();
             command.CommandText = @"SELECT Identifiant, version, nombreMoteurs, identifiantConstructeur
                 FROM Modele
-                Where identifiant ="+id+";";
+                Where identifiant =" + id + ";";
 
             command.Parameters.AddWithValue("Identifiant", id);
             MySqlDataReader reader = command.ExecuteReader();
@@ -164,7 +164,7 @@ namespace Aeroport.DAL
             connection.Close();
             return modeles;
         }
-        public static int UpdateAvion(Avion avion)
+        public static int InsertAvion(Avion avion)
         {
 
             MySqlConnection connection = new MySqlConnection(ConnectionString);
@@ -175,13 +175,56 @@ namespace Aeroport.DAL
             command.Connection = connection;
 
 
-            command.CommandText = @"UPDATE Avion SET Identifiant = @Identifiant, Nom = @nom, IdentifiantModele = @identifiantmodele
+            command.CommandText = $@"
+                                INSERT INTO Avion(Nom) 
+                                VALUES(@nom)";
 
-                        WHERE Livre.Identifiant = @Identifiant;";
-
-            command.Parameters.AddWithValue("@Identifiant", avion.Identifiant);
             command.Parameters.AddWithValue("@nom", avion.Nom);
-            command.Parameters.AddWithValue("@identifiantmodele", avion.IdentifiantModele);
+            int ajout = command.ExecuteNonQuery();
+            connection.Close();
+            return ajout;
+
+        }
+
+        public static int InsertModele(Modele modele)
+        {
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+
+
+            command.CommandText = $@"
+                                INSERT INTO Modele(version, nombreMoteurs) 
+                                VALUES(@version, @nombremoteurs)";
+
+            command.Parameters.AddWithValue("@nom", modele.Version);
+            command.Parameters.AddWithValue("@nombremoteurs", modele.NombreDeMoteur);
+            int ajout = command.ExecuteNonQuery();
+            connection.Close();
+            return ajout;
+
+        }
+
+        public static int InsertConstruc(Constructeur constr)
+        {
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+
+
+            command.CommandText = $@"
+                                INSERT INTO Constructeur(Nom) 
+                                VALUES(@nom)";
+
+            command.Parameters.AddWithValue("@nom", constr.Nom);
             int ajout = command.ExecuteNonQuery();
             connection.Close();
             return ajout;

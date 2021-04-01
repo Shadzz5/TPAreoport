@@ -31,15 +31,15 @@ namespace TPAréoport
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.NombreMoteur = new System.Windows.Forms.TextBox();
+            this.NomConstruc = new System.Windows.Forms.TextBox();
+            this.NomAvion = new System.Windows.Forms.TextBox();
             this.Nom = new System.Windows.Forms.Label();
             this.Version = new System.Windows.Forms.Label();
             this.Constructeur = new System.Windows.Forms.Label();
             this.Moteur = new System.Windows.Forms.Label();
-            this.comboBoxVersion = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.Enregistrer = new System.Windows.Forms.Button();
+            this.comboBoxVersion = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,9 +59,9 @@ namespace TPAréoport
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.NombreMoteur, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.NomConstruc, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.NomAvion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Nom, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.Version, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Constructeur, 0, 2);
@@ -80,6 +80,33 @@ namespace TPAréoport
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(671, 417);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // NombreMoteur
+            // 
+            this.NombreMoteur.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NombreMoteur.Location = new System.Drawing.Point(339, 280);
+            this.NombreMoteur.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.NombreMoteur.Name = "NombreMoteur";
+            this.NombreMoteur.Size = new System.Drawing.Size(100, 20);
+            this.NombreMoteur.TabIndex = 9;
+            // 
+            // NomConstruc
+            // 
+            this.NomConstruc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NomConstruc.Location = new System.Drawing.Point(339, 197);
+            this.NomConstruc.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.NomConstruc.Name = "NomConstruc";
+            this.NomConstruc.Size = new System.Drawing.Size(100, 20);
+            this.NomConstruc.TabIndex = 8;
+            // 
+            // NomAvion
+            // 
+            this.NomAvion.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NomAvion.Location = new System.Drawing.Point(339, 31);
+            this.NomAvion.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.NomAvion.Name = "NomAvion";
+            this.NomAvion.Size = new System.Drawing.Size(100, 20);
+            this.NomAvion.TabIndex = 7;
             // 
             // Nom
             // 
@@ -117,42 +144,6 @@ namespace TPAréoport
             this.Moteur.TabIndex = 3;
             this.Moteur.Text = "Moteur";
             // 
-            // comboBoxVersion
-            // 
-            this.comboBoxVersion.FormattingEnabled = true;
-            this.comboBoxVersion.Location = new System.Drawing.Point(339, 114);
-            this.comboBoxVersion.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.comboBoxVersion.Name = "comboBoxVersion";
-            this.comboBoxVersion.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxVersion.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox2.Location = new System.Drawing.Point(339, 31);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.Location = new System.Drawing.Point(339, 197);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox3.Location = new System.Drawing.Point(339, 280);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
-            // 
             // Enregistrer
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.Enregistrer, 2);
@@ -164,6 +155,15 @@ namespace TPAréoport
             this.Enregistrer.Text = "Enregistrer";
             this.Enregistrer.UseVisualStyleBackColor = true;
             this.Enregistrer.Click += new System.EventHandler(this.Enregistrer_Click);
+            // 
+            // comboBoxVersion
+            // 
+            this.comboBoxVersion.FormattingEnabled = true;
+            this.comboBoxVersion.Location = new System.Drawing.Point(339, 114);
+            this.comboBoxVersion.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.comboBoxVersion.Name = "comboBoxVersion";
+            this.comboBoxVersion.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxVersion.TabIndex = 6;
             // 
             // Ajout
             // 
@@ -187,10 +187,10 @@ namespace TPAréoport
         private System.Windows.Forms.Label Version;
         private System.Windows.Forms.Label Constructeur;
         private System.Windows.Forms.Label Moteur;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NomAvion;
         private System.Windows.Forms.ComboBox comboBoxVersion;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox NomConstruc;
+        private System.Windows.Forms.TextBox NombreMoteur;
         private System.Windows.Forms.Button Enregistrer;
     }
 }
