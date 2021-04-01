@@ -75,6 +75,64 @@ namespace Aeroport.DAL
             return constructeurs;
         }
 
+        public static Constructeur GetConstruct(int id)
+        {
+
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"SELECT Identifiant, Nom
+                FROM Constructeur 
+                WHERE Identifiant ="+id+";";
+
+            command.Parameters.AddWithValue("Identifiant", id);
+            MySqlDataReader reader = command.ExecuteReader();
+            Constructeur c = null;
+            if (reader.Read())
+            {
+                c = new Constructeur();
+                c.Identifiant = reader.GetInt32("Identifiant");
+                c.Nom = reader.GetString("Nom");
+
+            }
+
+            connection.Close();
+            return c;
+        }
+
+        public static Modele GetModele(int id)
+        {
+
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"SELECT Identifiant, version, nombreMoteurs, identifiantConstructeur
+                FROM Modele
+                Where identifiant ="+id+";";
+
+            command.Parameters.AddWithValue("Identifiant", id);
+            MySqlDataReader reader = command.ExecuteReader();
+            Modele m = null;
+            if (reader.Read())
+            {
+                m = new Modele();
+                m.Identifiant = reader.GetInt32("Identifiant");
+                m.IdentifiantConstructeur = reader.GetInt32("IdentifiantConstructeur");
+                m.NombreDeMoteur = reader.GetInt32("nombreMoteurs");
+                m.Version = reader.GetString("Version");
+
+            }
+
+            connection.Close();
+            return m;
+        }
+
         public static List<Modele> AllModele()
         {
 

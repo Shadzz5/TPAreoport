@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using TPAréoport;
 
 namespace TPAreoport
 {
@@ -22,33 +23,28 @@ namespace TPAreoport
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
             ListAvion.ValueMember = "Identifiant";
-
-
-            List<Constructeur> constructeurs = AeroportBdd.AllConstruct();
-            ListboxConstructeur.DataSource = constructeurs;
-            ListboxConstructeur.DisplayMember = "CompleteName";
-            ListboxConstructeur.ValueMember = "Identifiant";
-
-            List<Modele> modeles = AeroportBdd.AllModele();
-            ListModele.DataSource = modeles;
-            ListModele.DisplayMember = "CompleteName";
-            ListModele.ValueMember = "Identifiant";
+           
         }
 
-        private void ListboxConstructeur_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Constructeur selectedConstructeur = (Constructeur)ListboxConstructeur.SelectedItem;
-        }
+        
 
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Avion selectedAvion = (Avion)ListAvion.SelectedItem;
-           
+            int idmodele = selectedAvion.IdentifiantModele;
+            Modele model = AeroportBdd.GetModele(idmodele);
+            int idconstruc = model.IdentifiantConstructeur;
+            Constructeur constr = AeroportBdd.GetConstruct(idconstruc);
+            ResultNom.Text = selectedAvion.Nom;
+            ResultVersion.Text = model.Version;
+            ResultMoteur.Text = model.NombreDeMoteur.ToString();
+            ResultConstructeur.Text = constr.Nom;
         }
 
-        private void ListModele_SelectedIndexChanged(object sender, EventArgs e)
+        private void ButtonAvion_Click(object sender, EventArgs e)
         {
-            Modele selectedModele = (Modele)ListModele.SelectedItem;
+            AjoutModifSupprAvion form = new AjoutModifSupprAvion();
+            form.ShowDialog();
         }
     }
 }
