@@ -22,17 +22,33 @@ namespace TPAreoport
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
             ListAvion.ValueMember = "Identifiant";
+
+
+            List<Constructeur> constructeurs = AeroportBdd.AllConstruct();
+            ListboxConstructeur.DataSource = constructeurs;
+            ListboxConstructeur.DisplayMember = "CompleteName";
+            ListboxConstructeur.ValueMember = "Identifiant";
+
+            List<Modele> modeles = AeroportBdd.AllModele();
+            ListModele.DataSource = modeles;
+            ListModele.DisplayMember = "CompleteName";
+            ListModele.ValueMember = "Identifiant";
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListboxConstructeur_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Constructeur selectedConstructeur = (Constructeur)ListboxConstructeur.SelectedItem;
         }
 
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Avion selectedBook = (Avion)ListAvion.SelectedItem;
+            Avion selectedAvion = (Avion)ListAvion.SelectedItem;
            
+        }
+
+        private void ListModele_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Modele selectedModele = (Modele)ListModele.SelectedItem;
         }
     }
 }

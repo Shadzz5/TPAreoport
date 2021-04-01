@@ -74,9 +74,42 @@ namespace Aeroport.DAL
             connection.Close();
             return constructeurs;
         }
-    }
 
-}  //        public static Livre Find(int id)
+        public static List<Modele> AllModele()
+        {
+
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"SELECT Identifiant, version, nombreMoteurs, identifiantConstructeur
+                FROM Modele;";
+
+
+            MySqlDataReader reader = command.ExecuteReader();
+            List<Modele> modeles = new List<Modele>();
+            Modele m = null;
+            while (reader.Read())
+            {
+                m = new Modele();
+                m.Identifiant = reader.GetInt32("Identifiant");
+                m.IdentifiantConstructeur = reader.GetInt32("IdentifiantConstructeur");
+                m.NombreDeMoteur = reader.GetInt32("nombreMoteurs");
+                m.Version = reader.GetString("Version");
+
+                modeles.Add(m);
+
+            }
+
+            connection.Close();
+            return modeles;
+        }
+    }
+}
+
+  //        public static Livre Find(int id)
     //        {
     //            MySqlConnection connection = new MySqlConnection(ConnectionString);
 

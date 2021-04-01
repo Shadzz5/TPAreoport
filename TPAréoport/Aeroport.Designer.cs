@@ -35,12 +35,12 @@ namespace TPAreoport
             this.Avion = new System.Windows.Forms.Label();
             this.ButtonAvion = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.ListModele = new System.Windows.Forms.ListBox();
             this.Modèle = new System.Windows.Forms.Label();
             this.ButtonModele = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Constructeur = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ListboxConstructeur = new System.Windows.Forms.ListBox();
             this.ButtonConstruc = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -112,7 +112,7 @@ namespace TPAreoport
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.listBox2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ListModele, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Modèle, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonModele, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -125,13 +125,14 @@ namespace TPAreoport
             this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 501);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // listBox2
+            // ListModele
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(6, 55);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(268, 368);
-            this.listBox2.TabIndex = 2;
+            this.ListModele.FormattingEnabled = true;
+            this.ListModele.Location = new System.Drawing.Point(6, 55);
+            this.ListModele.Name = "ListModele";
+            this.ListModele.Size = new System.Drawing.Size(268, 368);
+            this.ListModele.TabIndex = 2;
+            this.ListModele.SelectedIndexChanged += new System.EventHandler(this.ListModele_SelectedIndexChanged);
             // 
             // Modèle
             // 
@@ -160,7 +161,7 @@ namespace TPAreoport
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.Constructeur, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.listBox1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.ListboxConstructeur, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.ButtonConstruc, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -183,14 +184,14 @@ namespace TPAreoport
             this.Constructeur.Text = "Constructeur";
             this.Constructeur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox1
+            // ListboxConstructeur
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 55);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(268, 368);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ListboxConstructeur.FormattingEnabled = true;
+            this.ListboxConstructeur.Location = new System.Drawing.Point(6, 55);
+            this.ListboxConstructeur.Name = "ListboxConstructeur";
+            this.ListboxConstructeur.Size = new System.Drawing.Size(268, 368);
+            this.ListboxConstructeur.TabIndex = 1;
+            this.ListboxConstructeur.SelectedIndexChanged += new System.EventHandler(this.ListboxConstructeur_SelectedIndexChanged);
             // 
             // ButtonConstruc
             // 
@@ -232,9 +233,9 @@ namespace TPAreoport
         private System.Windows.Forms.Label Constructeur;
         private System.Windows.Forms.ListBox ListAvion;
         private System.Windows.Forms.Button ButtonAvion;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox ListModele;
         private System.Windows.Forms.Button ButtonModele;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ListboxConstructeur;
         private System.Windows.Forms.Button ButtonConstruc;
     }
 }
