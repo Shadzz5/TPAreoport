@@ -14,7 +14,7 @@ namespace TPAreoport
 {
     public partial class Aeroport : Form
     {
-        private List<Avion> avions;
+        
         public Aeroport()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace TPAreoport
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Avion selectedBook = (Avion)ListAvion.SelectedItem;
-            ListAvion.Items.Add(selectedBook);
+           
         }
     }
 }
