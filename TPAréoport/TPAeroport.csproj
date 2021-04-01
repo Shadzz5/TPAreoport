@@ -99,6 +99,12 @@
     <Compile Include="Aeroport.Designer.cs">
       <DependentUpon>Aeroport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajout.Designer.cs">
+      <DependentUpon>Ajout.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutModifSupprAvion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aeroport.resx">
       <DependentUpon>Aeroport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajout.resx">
+      <DependentUpon>Ajout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjoutModifSupprAvion.resx">
       <DependentUpon>AjoutModifSupprAvion.cs</DependentUpon>

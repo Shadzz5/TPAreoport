@@ -126,6 +126,7 @@ namespace TPAréoport
             this.Ajouter.TabIndex = 0;
             this.Ajouter.Text = "Ajouter";
             this.Ajouter.UseVisualStyleBackColor = true;
+            this.Ajouter.Click += new System.EventHandler(this.Ajouter_Click);
             // 
             // Modifier
             // 

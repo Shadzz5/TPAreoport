@@ -164,92 +164,115 @@ namespace Aeroport.DAL
             connection.Close();
             return modeles;
         }
+        public static int UpdateAvion(Avion avion)
+        {
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+
+
+            command.CommandText = @"UPDATE Avion SET Identifiant = @Identifiant, Nom = @nom, IdentifiantModele = @identifiantmodele
+
+                        WHERE Livre.Identifiant = @Identifiant;";
+
+            command.Parameters.AddWithValue("@Identifiant", avion.Identifiant);
+            command.Parameters.AddWithValue("@nom", avion.Nom);
+            command.Parameters.AddWithValue("@identifiantmodele", avion.IdentifiantModele);
+            int ajout = command.ExecuteNonQuery();
+            connection.Close();
+            return ajout;
+
+        }
     }
 }
 
-  //        public static Livre Find(int id)
-    //        {
-    //            MySqlConnection connection = new MySqlConnection(ConnectionString);
+//        public static Livre Find(int id)
+//        {
+//            MySqlConnection connection = new MySqlConnection(ConnectionString);
 
-    //            MySqlCommand command = new MySqlCommand();
-    //            command.Connection = connection;
-    //            connection.Open();
-    //            command.CommandText = @"SELECT Identifiant, NombrePages, Titre, Edition, ISBN, DateEdition, DateLecture, Note, Resume, Commentaire
-    //                FROM Livre
-    //                WHERE Livre.Identifiant = @Identifiant;";
+//            MySqlCommand command = new MySqlCommand();
+//            command.Connection = connection;
+//            connection.Open();
+//            command.CommandText = @"SELECT Identifiant, NombrePages, Titre, Edition, ISBN, DateEdition, DateLecture, Note, Resume, Commentaire
+//                FROM Livre
+//                WHERE Livre.Identifiant = @Identifiant;";
 
-    //            command.Parameters.AddWithValue("@Identifiant", id);
-    //            MySqlDataReader reader = command.ExecuteReader();
-    //            Livre l = null;
-    //            if (reader.Read())
-    //            {
-    //                l = new Livre();
-    //                l.Identifiant = reader.GetInt32("Identifiant");
-    //                l.ISBN = reader.GetString("ISBN");
-    //                l.NombresPages = reader.GetInt32("NombrePages");
-    //                l.Commentaire = reader.GetString("Commentaire");
-    //                l.Titre = reader.GetString("Titre");
-    //                l.Resume = reader.GetString("Resume");
-    //                l.Edition = reader.GetString("Edition");
-    //                l.DateLecture = reader.GetDateTime("DateLecture");
-    //                l.DateEdition = reader.GetInt32("DateEdition");
-    //                l.Note = reader.GetInt32("Note");
-
-
-    //            }
-
-    //            connection.Close();
-    //            return l;
-
-    //        }
-
-    //        public static int Delete(int id)
-    //        {
-    //            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-    //            MySqlCommand command = new MySqlCommand();
-    //            command.Connection = connection;
-    //            connection.Open();
-    //            command.CommandText = @"DELETE FROM Livre
-    //                                  WHERE Livre.Identifiant = @Identifiant;";
-
-    //            command.Parameters.AddWithValue("@Identifiant", id);
-    //            int lecture = command.ExecuteNonQuery();
-    //            connection.Close();
-    //            return lecture;
-    //        }
-    //        public static int Update(Livre livre)
-    //        {
-
-    //            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-    //            connection.Open();
-
-    //            MySqlCommand command = new MySqlCommand();
-    //            command.Connection = connection;
+//            command.Parameters.AddWithValue("@Identifiant", id);
+//            MySqlDataReader reader = command.ExecuteReader();
+//            Livre l = null;
+//            if (reader.Read())
+//            {
+//                l = new Livre();
+//                l.Identifiant = reader.GetInt32("Identifiant");
+//                l.ISBN = reader.GetString("ISBN");
+//                l.NombresPages = reader.GetInt32("NombrePages");
+//                l.Commentaire = reader.GetString("Commentaire");
+//                l.Titre = reader.GetString("Titre");
+//                l.Resume = reader.GetString("Resume");
+//                l.Edition = reader.GetString("Edition");
+//                l.DateLecture = reader.GetDateTime("DateLecture");
+//                l.DateEdition = reader.GetInt32("DateEdition");
+//                l.Note = reader.GetInt32("Note");
 
 
-    //            command.CommandText = @"UPDATE Livre SET Identifiant = @Identifiant, NombrePages = @nbpages, 
-    //                                  Titre = @titre, Edition = @edition, ISBN = @isbn, DateEdition = @dateedition, 
-    //                                  DateLecture = @datelecture, Note = @note, Resume = @resume, Commentaire = @commentaire
+//            }
 
-    //                WHERE Livre.Identifiant = @Identifiant;";
+//            connection.Close();
+//            return l;
 
-    //            command.Parameters.AddWithValue("@Identifiant", livre.Identifiant);
-    //            command.Parameters.AddWithValue("@nbpages", livre.NombresPages);
-    //            command.Parameters.AddWithValue("@titre", livre.Titre);
-    //            command.Parameters.AddWithValue("@edition", livre.Edition);
-    //            command.Parameters.AddWithValue("@isbn", livre.ISBN);
-    //            command.Parameters.AddWithValue("@dateedition", livre.DateEdition);
-    //            command.Parameters.AddWithValue("@datelecture", livre.DateLecture);
-    //            command.Parameters.AddWithValue("@note", livre.Note);
-    //            command.Parameters.AddWithValue("@resume", livre.Resume);
-    //            command.Parameters.AddWithValue("@commentaire", livre.Commentaire);
-    //            int ajout = command.ExecuteNonQuery();
-    //            connection.Close();
-    //            return ajout;
+//        }
 
-    //        }
-    //    }
-    //}
+//        public static int Delete(int id)
+//        {
+//            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+//            MySqlCommand command = new MySqlCommand();
+//            command.Connection = connection;
+//            connection.Open();
+//            command.CommandText = @"DELETE FROM Livre
+//                                  WHERE Livre.Identifiant = @Identifiant;";
+
+//            command.Parameters.AddWithValue("@Identifiant", id);
+//            int lecture = command.ExecuteNonQuery();
+//            connection.Close();
+//            return lecture;
+//        }
+//        public static int Update(Livre livre)
+//        {
+
+//            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+//            connection.Open();
+
+//            MySqlCommand command = new MySqlCommand();
+//            command.Connection = connection;
+
+
+//            command.CommandText = @"UPDATE Livre SET Identifiant = @Identifiant, NombrePages = @nbpages, 
+//                                  Titre = @titre, Edition = @edition, ISBN = @isbn, DateEdition = @dateedition, 
+//                                  DateLecture = @datelecture, Note = @note, Resume = @resume, Commentaire = @commentaire
+
+//                WHERE Livre.Identifiant = @Identifiant;";
+
+//            command.Parameters.AddWithValue("@Identifiant", livre.Identifiant);
+//            command.Parameters.AddWithValue("@nbpages", livre.NombresPages);
+//            command.Parameters.AddWithValue("@titre", livre.Titre);
+//            command.Parameters.AddWithValue("@edition", livre.Edition);
+//            command.Parameters.AddWithValue("@isbn", livre.ISBN);
+//            command.Parameters.AddWithValue("@dateedition", livre.DateEdition);
+//            command.Parameters.AddWithValue("@datelecture", livre.DateLecture);
+//            command.Parameters.AddWithValue("@note", livre.Note);
+//            command.Parameters.AddWithValue("@resume", livre.Resume);
+//            command.Parameters.AddWithValue("@commentaire", livre.Commentaire);
+//            int ajout = command.ExecuteNonQuery();
+//            connection.Close();
+//            return ajout;
+
+//        }
+//    }
+//}
 

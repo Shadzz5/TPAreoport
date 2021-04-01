@@ -26,5 +26,11 @@ namespace TPAréoport
         {
             Avion selectedAvion = (Avion)ListAvion.SelectedItem;
         }
+
+        private void Ajouter_Click(object sender, EventArgs e)
+        {
+            Ajout form = new Ajout();
+            form.ShowDialog();
+        }
     }
 }
