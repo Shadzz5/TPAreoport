@@ -40,6 +40,7 @@ namespace TPAréoport
             this.Moteur = new System.Windows.Forms.Label();
             this.Enregistrer = new System.Windows.Forms.Button();
             this.comboBoxVersion = new System.Windows.Forms.ComboBox();
+            this.Annuler = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +69,7 @@ namespace TPAréoport
             this.tableLayoutPanel1.Controls.Add(this.Moteur, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.Enregistrer, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxVersion, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Annuler, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -146,11 +148,10 @@ namespace TPAréoport
             // 
             // Enregistrer
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.Enregistrer, 2);
             this.Enregistrer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Enregistrer.Location = new System.Drawing.Point(4, 336);
             this.Enregistrer.Name = "Enregistrer";
-            this.Enregistrer.Size = new System.Drawing.Size(663, 77);
+            this.Enregistrer.Size = new System.Drawing.Size(328, 77);
             this.Enregistrer.TabIndex = 4;
             this.Enregistrer.Text = "Enregistrer";
             this.Enregistrer.UseVisualStyleBackColor = true;
@@ -164,6 +165,16 @@ namespace TPAréoport
             this.comboBoxVersion.Name = "comboBoxVersion";
             this.comboBoxVersion.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVersion.TabIndex = 6;
+            // 
+            // Annuler
+            // 
+            this.Annuler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Annuler.Location = new System.Drawing.Point(339, 336);
+            this.Annuler.Name = "Annuler";
+            this.Annuler.Size = new System.Drawing.Size(328, 77);
+            this.Annuler.TabIndex = 10;
+            this.Annuler.Text = "Annuler";
+            this.Annuler.UseVisualStyleBackColor = true;
             // 
             // Ajout
             // 
@@ -192,5 +203,6 @@ namespace TPAréoport
         private System.Windows.Forms.TextBox NomConstruc;
         private System.Windows.Forms.TextBox NombreMoteur;
         private System.Windows.Forms.Button Enregistrer;
+        private System.Windows.Forms.Button Annuler;
     }
 }

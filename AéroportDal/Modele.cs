@@ -42,5 +42,12 @@ namespace Aeroport.DAL
             set { _NombreDeMoteur = value; }
         }
         #endregion
+        public String CompleteName
+        {
+            get
+            {
+                return _Version;
+            }
+        }
     }
 }

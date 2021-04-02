@@ -75,6 +75,38 @@ namespace Aeroport.DAL
             return constructeurs;
         }
 
+        public static List<Modele> AllModele()
+        {
+
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"SELECT Identifiant, version, nombreMoteurs, identifiantConstructeur
+                FROM Modele;";
+
+
+            MySqlDataReader reader = command.ExecuteReader();
+            List<Modele> modeles = new List<Modele>();
+            Modele m = null;
+            while (reader.Read())
+            {
+                m = new Modele();
+                m.Identifiant = reader.GetInt32("Identifiant");
+                m.IdentifiantConstructeur = reader.GetInt32("IdentifiantConstructeur");
+                m.NombreDeMoteur = reader.GetInt32("nombreMoteurs");
+                m.Version = reader.GetString("Version");
+
+                modeles.Add(m);
+
+            }
+
+            connection.Close();
+            return modeles;
+        }
+
         public static Constructeur GetConstruct(int id)
         {
 
@@ -133,37 +165,6 @@ namespace Aeroport.DAL
             return m;
         }
 
-        public static List<Modele> AllModele()
-        {
-
-
-            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = connection;
-            connection.Open();
-            command.CommandText = @"SELECT Identifiant, version, nombreMoteurs, identifiantConstructeur
-                FROM Modele;";
-
-
-            MySqlDataReader reader = command.ExecuteReader();
-            List<Modele> modeles = new List<Modele>();
-            Modele m = null;
-            while (reader.Read())
-            {
-                m = new Modele();
-                m.Identifiant = reader.GetInt32("Identifiant");
-                m.IdentifiantConstructeur = reader.GetInt32("IdentifiantConstructeur");
-                m.NombreDeMoteur = reader.GetInt32("nombreMoteurs");
-                m.Version = reader.GetString("Version");
-
-                modeles.Add(m);
-
-            }
-
-            connection.Close();
-            return modeles;
-        }
         public static int InsertAvion(Avion avion)
         {
 
@@ -177,7 +178,7 @@ namespace Aeroport.DAL
 
             command.CommandText = $@"
                                 INSERT INTO Avion(Nom) 
-                                VALUES(@nom)";
+                                VALUES(@nom);";
 
             command.Parameters.AddWithValue("@nom", avion.Nom);
             int ajout = command.ExecuteNonQuery();
@@ -199,9 +200,9 @@ namespace Aeroport.DAL
 
             command.CommandText = $@"
                                 INSERT INTO Modele(version, nombreMoteurs) 
-                                VALUES(@version, @nombremoteurs)";
+                                VALUES(@version, @nombremoteurs);";
 
-            command.Parameters.AddWithValue("@nom", modele.Version);
+            command.Parameters.AddWithValue("@version", modele.Version);
             command.Parameters.AddWithValue("@nombremoteurs", modele.NombreDeMoteur);
             int ajout = command.ExecuteNonQuery();
             connection.Close();
@@ -222,7 +223,7 @@ namespace Aeroport.DAL
 
             command.CommandText = $@"
                                 INSERT INTO Constructeur(Nom) 
-                                VALUES(@nom)";
+                                VALUES(@nom);";
 
             command.Parameters.AddWithValue("@nom", constr.Nom);
             int ajout = command.ExecuteNonQuery();
