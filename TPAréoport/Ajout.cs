@@ -13,15 +13,11 @@ namespace TPAréoport
 {
     public partial class Ajout : Form
     {
-
+        public object Avion { get; internal set; }
 
         public Ajout()
         {
             InitializeComponent();
-            List<Modele> modele = AeroportBdd.AllModele();
-            comboBoxVersion.DataSource = modele;
-            comboBoxVersion.DisplayMember = "CompleteName";
-            comboBoxVersion.ValueMember = "Identifiant";
         }
 
         private void Enregistrer_Click(object sender, EventArgs e)
@@ -29,18 +25,23 @@ namespace TPAréoport
             Avion avion = new Avion();
             Modele model = new Modele();
             Constructeur constructeur = new Constructeur();
-            int idmodele = avion.IdentifiantModele;
-            int idconstruc = model.IdentifiantConstructeur;
-            avion.Nom = this.NomAvion.Text;
-            model.NombreDeMoteur = Int32.Parse(NombreMoteur.Text);
-            Modele selectedModele = (Modele)comboBoxVersion.SelectedItem;
-            
 
-            constructeur.Nom = this.NomConstruc.Text;
+         
+            avion.Nom = NomAvion.Text;
+            model.NombreDeMoteur = Int32.Parse(NombreMoteur.Text);
+            model.Version = NomVersion.Text;
+            constructeur.Nom = NomConstruc.Text;
+
             AeroportBdd.InsertAvion(avion);
             AeroportBdd.InsertConstruc(constructeur);
             AeroportBdd.InsertModele(model);
             DialogResult = DialogResult.OK;
+
+        }
+
+        private void Annuler_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

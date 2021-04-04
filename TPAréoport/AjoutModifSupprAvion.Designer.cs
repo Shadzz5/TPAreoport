@@ -31,17 +31,23 @@ namespace TPAréoport
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.Tab = new System.Windows.Forms.TableLayoutPanel();
-            this.ListAvion = new System.Windows.Forms.ListBox();
             this.Avion = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.AjoutModifSup = new System.Windows.Forms.TableLayoutPanel();
             this.Ajouter = new System.Windows.Forms.Button();
             this.Modifier = new System.Windows.Forms.Button();
             this.Supprimer = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ListConstruc = new System.Windows.Forms.ListBox();
+            this.ListModele = new System.Windows.Forms.ListBox();
+            this.ListAvion = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.Tab.SuspendLayout();
             this.panel2.SuspendLayout();
             this.AjoutModifSup.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,9 +64,9 @@ namespace TPAréoport
             this.Tab.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.Tab.ColumnCount = 1;
             this.Tab.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Tab.Controls.Add(this.ListAvion, 0, 1);
             this.Tab.Controls.Add(this.Avion, 0, 0);
             this.Tab.Controls.Add(this.panel2, 0, 2);
+            this.Tab.Controls.Add(this.panel3, 0, 1);
             this.Tab.Dock = System.Windows.Forms.DockStyle.Left;
             this.Tab.Location = new System.Drawing.Point(0, 0);
             this.Tab.Name = "Tab";
@@ -68,17 +74,9 @@ namespace TPAréoport
             this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.04167F));
             this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.95834F));
             this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Tab.Size = new System.Drawing.Size(638, 419);
             this.Tab.TabIndex = 3;
-            // 
-            // ListAvion
-            // 
-            this.ListAvion.FormattingEnabled = true;
-            this.ListAvion.Location = new System.Drawing.Point(6, 46);
-            this.ListAvion.Name = "ListAvion";
-            this.ListAvion.Size = new System.Drawing.Size(626, 290);
-            this.ListAvion.TabIndex = 2;
-            this.ListAvion.SelectedIndexChanged += new System.EventHandler(this.ListAvion_SelectedIndexChanged);
             // 
             // Avion
             // 
@@ -147,6 +145,58 @@ namespace TPAréoport
             this.Supprimer.TabIndex = 2;
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseVisualStyleBackColor = true;
+            this.Supprimer.Click += new System.EventHandler(this.Supprimer_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Location = new System.Drawing.Point(6, 46);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(626, 299);
+            this.panel3.TabIndex = 4;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.ListConstruc, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ListModele, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ListAvion, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(626, 299);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // ListConstruc
+            // 
+            this.ListConstruc.FormattingEnabled = true;
+            this.ListConstruc.Location = new System.Drawing.Point(419, 3);
+            this.ListConstruc.Name = "ListConstruc";
+            this.ListConstruc.Size = new System.Drawing.Size(204, 290);
+            this.ListConstruc.TabIndex = 2;
+            this.ListConstruc.SelectedIndexChanged += new System.EventHandler(this.ListConstruc_SelectedIndexChanged);
+            // 
+            // ListModele
+            // 
+            this.ListModele.FormattingEnabled = true;
+            this.ListModele.Location = new System.Drawing.Point(211, 3);
+            this.ListModele.Name = "ListModele";
+            this.ListModele.Size = new System.Drawing.Size(202, 290);
+            this.ListModele.TabIndex = 1;
+            this.ListModele.SelectedIndexChanged += new System.EventHandler(this.ListModele_SelectedIndexChanged);
+            // 
+            // ListAvion
+            // 
+            this.ListAvion.FormattingEnabled = true;
+            this.ListAvion.Location = new System.Drawing.Point(3, 3);
+            this.ListAvion.Name = "ListAvion";
+            this.ListAvion.Size = new System.Drawing.Size(202, 290);
+            this.ListAvion.TabIndex = 0;
             // 
             // AjoutModifSupprAvion
             // 
@@ -160,6 +210,8 @@ namespace TPAréoport
             this.Tab.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.AjoutModifSup.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -168,12 +220,16 @@ namespace TPAréoport
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel Tab;
-        private System.Windows.Forms.ListBox ListAvion;
         private System.Windows.Forms.Label Avion;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel AjoutModifSup;
         private System.Windows.Forms.Button Ajouter;
         private System.Windows.Forms.Button Modifier;
         private System.Windows.Forms.Button Supprimer;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ListBox ListConstruc;
+        private System.Windows.Forms.ListBox ListModele;
+        public System.Windows.Forms.ListBox ListAvion;
     }
 }

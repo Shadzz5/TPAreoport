@@ -231,6 +231,42 @@ namespace Aeroport.DAL
             return ajout;
 
         }
+        public static int DeleteAvion(int id)
+        {
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"DELETE FROM Avion
+                                          WHERE Avion.Identifiant = @Identifiant and Avion.identifiantModele = @identifiantModele;";
+
+            command.Parameters.AddWithValue("@Identifiant", id);
+            command.Parameters.AddWithValue("@identifiantModele", id);
+            int avion = command.ExecuteNonQuery();
+            connection.Close();
+            return avion;
+        }
+        public static int DeleteModele(int id)
+        {
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"DELETE FROM Modele
+                                          WHERE Modele.Identifiant = @Identifiant;";
+
+            command.Parameters.AddWithValue("@Identifiant", id);
+            int modele = command.ExecuteNonQuery();
+            connection.Close();
+            return modele;
+        }
+
+
+
+
+
     }
 }
 
@@ -285,6 +321,9 @@ namespace Aeroport.DAL
 //            connection.Close();
 //            return lecture;
 //        }
+
+
+
 //        public static int Update(Livre livre)
 //        {
 

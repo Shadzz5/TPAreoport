@@ -30,6 +30,13 @@ namespace Aeroport.DAL
 
 
         #endregion
+        public String CompleteName
+        {
+            get
+            {
+                return _Nom;
+            }
+        }
     }
 }
  

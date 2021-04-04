@@ -15,6 +15,7 @@ namespace TPAreoport
 {
     public partial class Aeroport : Form
     {
+       
         
         public Aeroport()
         {
@@ -23,13 +24,20 @@ namespace TPAreoport
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
             ListAvion.ValueMember = "Identifiant";
-           
+            
         }
 
-        
+        public void RefreshBooksListBox()
+        {
+            List<Avion> avions = AeroportBdd.AllAvion();
+            ListAvion.DataSource = null;
+            ListAvion.DataSource = avions;
+            ListAvion.DisplayMember = "CompleteName";
+        }
 
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RefreshBooksListBox();
             Avion selectedAvion = (Avion)ListAvion.SelectedItem;
             int idmodele = selectedAvion.IdentifiantModele;
             Modele model = AeroportBdd.GetModele(idmodele);
@@ -38,13 +46,16 @@ namespace TPAreoport
             ResultNom.Text = selectedAvion.Nom;
             ResultVersion.Text = model.Version;
             ResultMoteur.Text = model.NombreDeMoteur.ToString();
-            ResultConstructeur.Text = constr.Nom;
+            ResultConstructeur.Text = constr.Nom; 
+            
         }
+      
 
         private void ButtonAvion_Click(object sender, EventArgs e)
         {
             AjoutModifSupprAvion form = new AjoutModifSupprAvion();
             form.ShowDialog();
+           
         }
     }
 }
