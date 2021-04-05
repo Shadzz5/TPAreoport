@@ -13,7 +13,7 @@ namespace TPAréoport
 {
     public partial class AjoutModifSupprAvion : Form
     {
-       
+
         public AjoutModifSupprAvion()
         {
             InitializeComponent();
@@ -41,17 +41,34 @@ namespace TPAréoport
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
         }
+        
+
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        { 
             Avion selectedAvion = (Avion)ListAvion.SelectedItem;
            
+           
+           
+        }
+        private void ListModele_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Modele selectedModele = (Modele)ListModele.SelectedItem;
+            
+
+        }
+
+        private void ListConstruc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Constructeur selectedConstruc = (Constructeur)ListConstruc.SelectedItem;
+     
         }
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
             Ajout form = new Ajout();
             form.ShowDialog();
-            
+
         }
 
         private void Supprimer_Click(object sender, EventArgs e)
@@ -60,24 +77,25 @@ namespace TPAréoport
             int idavion = selectedAvion.Identifiant;
             AeroportBdd.DeleteAvion(idavion);
 
-           
+
             Modele selectedModele = (Modele)ListModele.SelectedItem;
-            int idmodele= selectedModele.Identifiant;
-            AeroportBdd.DeleteModele(idmodele); 
-            
+            int idmodele = selectedModele.Identifiant;
+            AeroportBdd.DeleteModele(idmodele);
+
             Constructeur selectedConstruc = (Constructeur)ListConstruc.SelectedItem;
+            int idconstr = selectedConstruc.Identifiant;
+            AeroportBdd.DeleteModele(idconstr);
             RefreshBooksListBox();
         }
 
-        private void ListModele_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void Modifier_Click(object sender, EventArgs e)
         {
-            Modele selectedModele = (Modele)ListModele.SelectedItem;
-            
+            Modif form = new Modif();
+            form.ShowDialog();
         }
 
-        private void ListConstruc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Constructeur selectedConstruc = (Constructeur)ListConstruc.SelectedItem;
-        }
+
     }
 }

@@ -44,6 +44,7 @@ CREATE TABLE vol (
     duree INT,
     identifiantAvion INT UNSIGNED
 ) ENGINE = INNODB;
+
 ALTER TABLE aeroport
 ADD FOREIGN KEY (identifiantVille) REFERENCES ville(identifiant);
 ALTER TABLE ville
@@ -87,4 +88,5 @@ INSERT INTO compagnie(identifiant, nom ) VALUES (1, 'Air France'), (2, 'China Ai
 INSERT INTO vol (identifiant,`code`, identifiantAeroportProvenance, identifiantAeroportDestination, identifiantCompagnie, duree,identifiantAvion) VALUES (1, 'AT754' , 1, 2, 1, 134, 1),(2, 'BG816', 2, 3, 1, 61, 2),(3, 'TE493',7, 4, 4, 220, 3),
  (4,'IZ118', 3, 5, 2, 240, 4), (5,'OP119', 5, 1, 2, 61, 5),(6,'ZX917', 1, 3, 2, 61, 2), (7,'UY587', 9, 2, 3, 145, 3), (8,'MP178', 2, 4, 1, 158, 5),(9,'NB556', 8, 7, 4, 101, 5), (10,'GF345', 4, 3, 2, 215, 6), (11,'WQ477', 1, 2, 3, 128, 3);
 SELECT * From avion;
-
+SELECT * From modele;
+SELECT * From constructeur;

@@ -12,6 +12,11 @@ namespace Aeroport.DAL
     {
         private static String ConnectionString = "Server=localhost;Database=vols;Uid=root;";
 
+        #region All
+
+        #region AllAvion
+
+
         public static List<Avion> AllAvion()
         {
 
@@ -42,7 +47,9 @@ namespace Aeroport.DAL
             connection.Close();
             return avions;
         }
+        #endregion
 
+        #region AllConstruct
 
 
         public static List<Constructeur> AllConstruct()
@@ -74,7 +81,11 @@ namespace Aeroport.DAL
             connection.Close();
             return constructeurs;
         }
+        #endregion
 
+        #region AllModele
+
+        
         public static List<Modele> AllModele()
         {
 
@@ -106,6 +117,15 @@ namespace Aeroport.DAL
             connection.Close();
             return modeles;
         }
+        #endregion
+
+        #endregion
+
+        #region Get
+
+
+        #region GetConstruct
+
 
         public static Constructeur GetConstruct(int id)
         {
@@ -134,6 +154,9 @@ namespace Aeroport.DAL
             connection.Close();
             return c;
         }
+        #endregion
+        #region Get Modele
+
 
         public static Modele GetModele(int id)
         {
@@ -164,6 +187,14 @@ namespace Aeroport.DAL
             connection.Close();
             return m;
         }
+        #endregion
+#endregion
+
+        #region Insert
+
+
+        #region Insert Avion
+
 
         public static int InsertAvion(Avion avion)
         {
@@ -186,6 +217,9 @@ namespace Aeroport.DAL
             return ajout;
 
         }
+        #endregion
+        #region Insert Modele
+
 
         public static int InsertModele(Modele modele)
         {
@@ -209,6 +243,10 @@ namespace Aeroport.DAL
             return ajout;
 
         }
+        #endregion
+
+        #region Insert Construc
+
 
         public static int InsertConstruc(Constructeur constr)
         {
@@ -231,6 +269,13 @@ namespace Aeroport.DAL
             return ajout;
 
         }
+        #endregion
+        #endregion
+
+        #region Delete
+
+
+        #region Delete Avion
         public static int DeleteAvion(int id)
         {
             MySqlConnection connection = new MySqlConnection(ConnectionString);
@@ -239,14 +284,18 @@ namespace Aeroport.DAL
             command.Connection = connection;
             connection.Open();
             command.CommandText = @"DELETE FROM Avion
-                                          WHERE Avion.Identifiant = @Identifiant and Avion.identifiantModele = @identifiantModele;";
+                                          WHERE Avion.Identifiant = @Identifiant;";
 
             command.Parameters.AddWithValue("@Identifiant", id);
-            command.Parameters.AddWithValue("@identifiantModele", id);
             int avion = command.ExecuteNonQuery();
             connection.Close();
             return avion;
         }
+        #endregion
+
+        #region Delete Modele
+
+
         public static int DeleteModele(int id)
         {
             MySqlConnection connection = new MySqlConnection(ConnectionString);
@@ -262,13 +311,120 @@ namespace Aeroport.DAL
             connection.Close();
             return modele;
         }
+        #endregion
+
+        #region Delete Constructeur
+        public static int DeleteConstruc(int id)
+        {
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"DELETE FROM Constructeur
+                                          WHERE Constructeur.Identifiant = @Identifiant;";
+
+            command.Parameters.AddWithValue("@Identifiant", id);
+            int constr = command.ExecuteNonQuery();
+            connection.Close();
+            return constr;
+        }
+
+        #endregion
+        #endregion
+
+        #region Update
+
+
+        #region Update Avion
+
+
+        public static int UpdateAvion(Avion avion)
+        {
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+
+
+            command.CommandText = @"UPDATE Avion SET Identifiant = @Identifiant, Nom = @nom  
+                                    WHERE Avion.Identifiant = @Identifiant;";
 
 
 
+            command.Parameters.AddWithValue("@Identifiant", avion.Identifiant);
+            command.Parameters.AddWithValue("@nom", avion.Nom);
+            int update = command.ExecuteNonQuery();
+            connection.Close();
+            return update;
+
+        }
+        #endregion
+
+        #region Update Modele
 
 
+        public static int UpdateModele(Modele modele)
+        {
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+
+
+            command.CommandText = @"UPDATE Modele SET Identifiant = @Identifiant, Version = @Version, nombreMoteurs = @nbMoteur
+                                    WHERE Modele.Identifiant = @Identifiant;";
+
+
+
+            command.Parameters.AddWithValue("@Identifiant", modele.Identifiant);
+            command.Parameters.AddWithValue("@Version", modele.Version);
+            command.Parameters.AddWithValue("@nbMoteur", modele.NombreDeMoteur);
+            int update = command.ExecuteNonQuery();
+            connection.Close();
+            return update;
+
+        }
+        #endregion
+
+        #region Update Construcuteur
+        public static int UpdateConstruc(Constructeur constructeur)
+        {
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+
+
+            command.CommandText = @"UPDATE Modele SET Identifiant = @Identifiant, Nom = @nom
+                                    WHERE Modele.Identifiant = @Identifiant;";
+
+
+
+            command.Parameters.AddWithValue("@Identifiant", constructeur.Identifiant);
+            command.Parameters.AddWithValue("@nom", constructeur.Nom);
+            int update = command.ExecuteNonQuery();
+            connection.Close();
+            return update;
+
+        }
+        #endregion 
+        #endregion
     }
+
+
+
 }
+
 
 //        public static Livre Find(int id)
 //        {
@@ -306,21 +462,6 @@ namespace Aeroport.DAL
 
 //        }
 
-//        public static int Delete(int id)
-//        {
-//            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-//            MySqlCommand command = new MySqlCommand();
-//            command.Connection = connection;
-//            connection.Open();
-//            command.CommandText = @"DELETE FROM Livre
-//                                  WHERE Livre.Identifiant = @Identifiant;";
-
-//            command.Parameters.AddWithValue("@Identifiant", id);
-//            int lecture = command.ExecuteNonQuery();
-//            connection.Close();
-//            return lecture;
-//        }
 
 
 

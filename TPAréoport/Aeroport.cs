@@ -37,7 +37,7 @@ namespace TPAreoport
 
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshBooksListBox();
+            
             Avion selectedAvion = (Avion)ListAvion.SelectedItem;
             int idmodele = selectedAvion.IdentifiantModele;
             Modele model = AeroportBdd.GetModele(idmodele);
