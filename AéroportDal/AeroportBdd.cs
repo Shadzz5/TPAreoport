@@ -239,17 +239,11 @@ namespace Aeroport.DAL
 
 
             command.CommandText = $@"
-                                INSERT INTO Avion(Nom) 
-                                VALUES(@nom);";
+                                INSERT INTO Avion(Nom, identifiantModele) 
+                                VALUES(@nom, @identifiantModele);";
             command.Parameters.AddWithValue("@nom", avion.Nom);
+            command.Parameters.AddWithValue("@identifiantModele", avion.IdentifiantModele);
             int result = command.ExecuteNonQuery();
-
-                command = new MySqlCommand();
-                command.Connection = connection;
-                command.CommandText = @"INSERT INTO avion(identifiantModele)VALUES(@identifiantModele)";
-                command.Parameters.AddWithValue("@identifiantModele", avion.IdentifiantModele);
-                
-                result = command.ExecuteNonQuery();
             
             
            

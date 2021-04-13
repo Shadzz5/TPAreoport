@@ -62,7 +62,7 @@ namespace TPAréoport
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            Modif form = new Modif();
+            ModifAvion form = new ModifAvion();
             form.ShowDialog();
         }
 

@@ -47,6 +47,7 @@ CREATE TABLE vol (
 
 ALTER TABLE aeroport
 ADD FOREIGN KEY (identifiantVille) REFERENCES ville(identifiant);
+
 ALTER Table ville ADD CONSTRAINT fk_ville_pays    
 FOREIGN KEY(identifiantPays) 
 REFERENCES pays (identifiant)
