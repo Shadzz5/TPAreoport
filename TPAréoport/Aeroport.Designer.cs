@@ -1,7 +1,7 @@
 ﻿
 namespace TPAreoport
 {
-    partial class Aeroport
+    partial class Avions
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -43,19 +43,31 @@ namespace TPAreoport
             this.ListAvion = new System.Windows.Forms.ListBox();
             this.Avion = new System.Windows.Forms.Label();
             this.ButtonAvion = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ListModele = new System.Windows.Forms.ListBox();
+            this.LabelModele = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.ListConstructeur = new System.Windows.Forms.ListBox();
+            this.LabelConstructeur = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tableLayoutPanel4);
+            this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.tableLayoutPanel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(595, 517);
+            this.panel1.Size = new System.Drawing.Size(979, 511);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -71,13 +83,13 @@ namespace TPAreoport
             this.tableLayoutPanel1.Controls.Add(this.ResultMoteur, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.Nom, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.Constructeur, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(286, 30);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(668, 29);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00105F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99965F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99965F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99965F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(302, 455);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
@@ -184,7 +196,7 @@ namespace TPAreoport
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.04167F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.95834F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(280, 517);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(220, 511);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // ListAvion
@@ -192,7 +204,7 @@ namespace TPAreoport
             this.ListAvion.FormattingEnabled = true;
             this.ListAvion.Location = new System.Drawing.Point(6, 57);
             this.ListAvion.Name = "ListAvion";
-            this.ListAvion.Size = new System.Drawing.Size(268, 368);
+            this.ListAvion.Size = new System.Drawing.Size(208, 355);
             this.ListAvion.TabIndex = 2;
             this.ListAvion.SelectedIndexChanged += new System.EventHandler(this.ListAvion_SelectedIndexChanged);
             // 
@@ -202,7 +214,7 @@ namespace TPAreoport
             this.Avion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Avion.Location = new System.Drawing.Point(6, 3);
             this.Avion.Name = "Avion";
-            this.Avion.Size = new System.Drawing.Size(268, 48);
+            this.Avion.Size = new System.Drawing.Size(208, 48);
             this.Avion.TabIndex = 0;
             this.Avion.Text = "Avion";
             this.Avion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,28 +222,127 @@ namespace TPAreoport
             // ButtonAvion
             // 
             this.ButtonAvion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonAvion.Location = new System.Drawing.Point(6, 452);
+            this.ButtonAvion.Location = new System.Drawing.Point(6, 446);
             this.ButtonAvion.Name = "ButtonAvion";
-            this.ButtonAvion.Size = new System.Drawing.Size(268, 59);
+            this.ButtonAvion.Size = new System.Drawing.Size(208, 59);
             this.ButtonAvion.TabIndex = 3;
             this.ButtonAvion.Text = "Gestion des avions";
             this.ButtonAvion.UseVisualStyleBackColor = true;
             this.ButtonAvion.Click += new System.EventHandler(this.ButtonAvion_Click);
             // 
-            // Aeroport
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.ListModele, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.LabelModele, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(220, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.04167F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.95834F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(220, 511);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // ListModele
+            // 
+            this.ListModele.FormattingEnabled = true;
+            this.ListModele.Location = new System.Drawing.Point(6, 57);
+            this.ListModele.Name = "ListModele";
+            this.ListModele.Size = new System.Drawing.Size(208, 355);
+            this.ListModele.TabIndex = 2;
+            this.ListModele.SelectedIndexChanged += new System.EventHandler(this.ListModele_SelectedIndexChanged);
+            // 
+            // LabelModele
+            // 
+            this.LabelModele.AutoSize = true;
+            this.LabelModele.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelModele.Location = new System.Drawing.Point(6, 3);
+            this.LabelModele.Name = "LabelModele";
+            this.LabelModele.Size = new System.Drawing.Size(208, 48);
+            this.LabelModele.TabIndex = 0;
+            this.LabelModele.Text = "Modèle";
+            this.LabelModele.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(6, 446);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 59);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Gestion des modèles";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.ListConstructeur, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.LabelConstructeur, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.button2, 0, 2);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(440, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.04167F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.95834F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(220, 511);
+            this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // ListConstructeur
+            // 
+            this.ListConstructeur.FormattingEnabled = true;
+            this.ListConstructeur.Location = new System.Drawing.Point(6, 57);
+            this.ListConstructeur.Name = "ListConstructeur";
+            this.ListConstructeur.Size = new System.Drawing.Size(208, 355);
+            this.ListConstructeur.TabIndex = 2;
+            this.ListConstructeur.SelectedIndexChanged += new System.EventHandler(this.ListConstructeur_SelectedIndexChanged);
+            // 
+            // LabelConstructeur
+            // 
+            this.LabelConstructeur.AutoSize = true;
+            this.LabelConstructeur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelConstructeur.Location = new System.Drawing.Point(6, 3);
+            this.LabelConstructeur.Name = "LabelConstructeur";
+            this.LabelConstructeur.Size = new System.Drawing.Size(208, 48);
+            this.LabelConstructeur.TabIndex = 0;
+            this.LabelConstructeur.Text = "Constructeur";
+            this.LabelConstructeur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(6, 446);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 59);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Gestion des constructeurs";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // Avions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 517);
+            this.ClientSize = new System.Drawing.Size(979, 511);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Aeroport";
+            this.Name = "Avions";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -252,6 +363,14 @@ namespace TPAreoport
         private System.Windows.Forms.Label ResultConstructeur;
         private System.Windows.Forms.Label NombreDeMoteur;
         private System.Windows.Forms.Label ResultMoteur;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.ListBox ListConstructeur;
+        private System.Windows.Forms.Label LabelConstructeur;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ListBox ListModele;
+        private System.Windows.Forms.Label LabelModele;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -22,16 +22,6 @@ namespace TPAréoport
             ListAvion.DisplayMember = "CompleteName";
             ListAvion.ValueMember = "Identifiant";
 
-            List<Modele> modele = AeroportBdd.AllModele();
-            ListModele.DataSource = modele;
-            ListModele.DisplayMember = "CompleteName";
-            ListModele.ValueMember = "Identifiant";
-
-            List<Constructeur> constr = AeroportBdd.AllConstruct();
-            ListConstruc.DataSource = constr;
-            ListConstruc.DisplayMember = "CompleteName";
-            ListConstruc.ValueMember = "Identifiant";
-
 
         }
         public void RefreshBooksListBox()
@@ -50,19 +40,7 @@ namespace TPAréoport
            
            
         }
-        private void ListModele_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Modele selectedModele = (Modele)ListModele.SelectedItem;
-            
-
-        }
-
-        private void ListConstruc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            Constructeur selectedConstruc = (Constructeur)ListConstruc.SelectedItem;
-     
-        }
+       
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
@@ -77,14 +55,6 @@ namespace TPAréoport
             int idavion = selectedAvion.Identifiant;
             AeroportBdd.DeleteAvion(idavion);
 
-
-            Modele selectedModele = (Modele)ListModele.SelectedItem;
-            int idmodele = selectedModele.Identifiant;
-            AeroportBdd.DeleteModele(idmodele);
-
-            Constructeur selectedConstruc = (Constructeur)ListConstruc.SelectedItem;
-            int idconstr = selectedConstruc.Identifiant;
-            AeroportBdd.DeleteModele(idconstr);
             RefreshBooksListBox();
         }
 

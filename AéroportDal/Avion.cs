@@ -12,6 +12,7 @@ namespace Aeroport.DAL
         private int _Identifiant;
         private string _Nom;
         private int _IdentifiantModele;
+        public List<Avion> Avions { get; set; }
         #endregion
 
         #region Propriétés

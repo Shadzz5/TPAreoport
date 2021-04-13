@@ -47,20 +47,47 @@ CREATE TABLE vol (
 
 ALTER TABLE aeroport
 ADD FOREIGN KEY (identifiantVille) REFERENCES ville(identifiant);
-ALTER TABLE ville
-ADD FOREIGN KEY (identifiantPays) REFERENCES pays(identifiant);
-ALTER TABLE modele
-ADD FOREIGN KEY (identifiantConstructeur) REFERENCES constructeur(identifiant);
-ALTER TABLE avion
-ADD FOREIGN KEY (identifiantModele) REFERENCES modele(identifiant);
-ALTER TABLE vol
-ADD FOREIGN KEY (identifiantAeroportProvenance) REFERENCES aeroport(identifiant);
-ALTER TABLE vol
-ADD FOREIGN KEY (identifiantAeroportDestination) REFERENCES aeroport(identifiant);
-ALTER TABLE vol
-ADD FOREIGN KEY (identifiantCompagnie) REFERENCES compagnie(identifiant);
-ALTER TABLE vol
-ADD FOREIGN KEY (identifiantAvion) REFERENCES avion(identifiant);
+ALTER Table ville ADD CONSTRAINT fk_ville_pays    
+FOREIGN KEY(identifiantPays) 
+REFERENCES pays (identifiant)
+ON DELETE CASCADE;
+
+
+ALTER Table ville ADD CONSTRAINT fk_ville_pays    
+FOREIGN KEY(identifiantPays) 
+REFERENCES pays (identifiant)
+ON DELETE CASCADE;
+
+ALTER TABLE modele ADD CONSTRAINT fk_modele_constructeur  
+FOREIGN KEY (identifiantConstructeur) 
+REFERENCES constructeur(identifiant)
+ON DELETE CASCADE;
+
+ALTER TABLE avion ADD CONSTRAINT fk_avion_modele 
+FOREIGN KEY (identifiantModele) 
+REFERENCES modele(identifiant)
+ON DELETE CASCADE;
+
+ALTER TABLE vol ADD CONSTRAINT fk_vol_aeroport
+FOREIGN KEY (identifiantAeroportProvenance) 
+REFERENCES aeroport(identifiant)
+ON DELETE CASCADE;
+
+ALTER TABLE vol ADD CONSTRAINT fk_vol_aeroport
+FOREIGN KEY (identifiantAeroportDestination) 
+REFERENCES aeroport(identifiant)
+ON DELETE CASCADE;
+
+ALTER TABLE vol ADD CONSTRAINT fk_vol_compagnie
+FOREIGN KEY (identifiantCompagnie) 
+REFERENCES compagnie(identifiant)
+ON DELETE CASCADE;
+
+ALTER TABLE vol ADD CONSTRAINT fk_vol_avion
+FOREIGN KEY (identifiantAvion) 
+REFERENCES avion(identifiant)
+ON DELETE CASCADE;
+
 
 USE vols;
 DELETE FROM vol;

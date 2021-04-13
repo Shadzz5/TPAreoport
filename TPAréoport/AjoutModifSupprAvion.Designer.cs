@@ -40,8 +40,6 @@ namespace TPAréoport
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ListAvion = new System.Windows.Forms.ListBox();
-            this.ListConstruc = new System.Windows.Forms.ListBox();
-            this.ListModele = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.Tab.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -158,12 +156,8 @@ namespace TPAréoport
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.ListConstruc, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ListModele, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ListAvion, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -179,27 +173,9 @@ namespace TPAréoport
             this.ListAvion.FormattingEnabled = true;
             this.ListAvion.Location = new System.Drawing.Point(3, 3);
             this.ListAvion.Name = "ListAvion";
-            this.ListAvion.Size = new System.Drawing.Size(202, 290);
+            this.ListAvion.Size = new System.Drawing.Size(620, 290);
             this.ListAvion.TabIndex = 0;
             // 
-            // ListConstruc
-            // 
-            this.ListConstruc.FormattingEnabled = true;
-            this.ListConstruc.Location = new System.Drawing.Point(419, 3);
-            this.ListConstruc.Name = "ListConstruc";
-            this.ListConstruc.Size = new System.Drawing.Size(204, 290);
-            this.ListConstruc.TabIndex = 2;
-            this.ListConstruc.SelectedIndexChanged += new System.EventHandler(this.ListConstruc_SelectedIndexChanged);
-            // 
-            // ListModele
-            // 
-            this.ListModele.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.ListModele.CausesValidation = false;
-            this.ListModele.FormattingEnabled = true;
-            this.ListModele.Location = new System.Drawing.Point(211, 3);
-            this.ListModele.Name = "ListModele";
-            this.ListModele.Size = new System.Drawing.Size(202, 290);
-            this.ListModele.TabIndex = 1;            // 
             // AjoutModifSupprAvion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,7 +207,5 @@ namespace TPAréoport
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.ListBox ListAvion;
-        private System.Windows.Forms.ListBox ListConstruc;
-        private System.Windows.Forms.ListBox ListModele;
     }
 }

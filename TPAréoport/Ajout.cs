@@ -18,23 +18,26 @@ namespace TPAréoport
         public Ajout()
         {
             InitializeComponent();
+
+            List<Modele> modele = AeroportBdd.AllModele();
+            comboBoxVersion.DataSource = modele; 
+            comboBoxVersion.DisplayMember = "CompleteName";
+            comboBoxVersion.ValueMember = "Identifiant";
+
+           
+
+            List<Constructeur> constructeurs = AeroportBdd.AllConstruct();
+            comboBoxConstructeur.DataSource = constructeurs;
+            comboBoxConstructeur.DisplayMember = "CompleteName";
+            comboBoxConstructeur.ValueMember = "Identifiant";
         }
 
         private void Enregistrer_Click(object sender, EventArgs e)
         {
             Avion avion = new Avion();
-            Modele model = new Modele();
-            Constructeur constructeur = new Constructeur();
 
-         
             avion.Nom = NomAvion.Text;
-            model.NombreDeMoteur = Int32.Parse(NombreMoteur.Text);
-            model.Version = NomVersion.Text;
-            constructeur.Nom = NomConstruc.Text;
-
             AeroportBdd.InsertAvion(avion);
-            AeroportBdd.InsertConstruc(constructeur);
-            AeroportBdd.InsertModele(model);
             DialogResult = DialogResult.OK;
 
         }
@@ -43,5 +46,27 @@ namespace TPAréoport
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void comboBoxVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Modele selectedModele = (Modele)comboBoxVersion.SelectedItem;
+            Modele m = new Modele();
+            comboBoxVersion.SelectedItem = m.Version;
+
+            AeroportBdd.InsertModele(m);
+
+
+        }
+
+        private void comboBoxConstructeur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Constructeur selectedConstructeur = (Constructeur)comboBoxConstructeur.SelectedItem;
+            Constructeur c = new Constructeur();
+            comboBoxConstructeur.SelectedItem = c.Nom;
+
+            AeroportBdd.InsertConstruc(c);
+        }
+
+       
     }
 }

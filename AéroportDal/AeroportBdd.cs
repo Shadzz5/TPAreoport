@@ -39,10 +39,11 @@ namespace Aeroport.DAL
                 a.Identifiant = reader.GetInt32("Identifiant");
                 a.IdentifiantModele = reader.GetInt32("IdentifiantModele");
                 a.Nom = reader.GetString("Nom");
-
+              
                 avions.Add(a);
 
             }
+          
 
             connection.Close();
             return avions;
@@ -122,7 +123,37 @@ namespace Aeroport.DAL
         #endregion
 
         #region Get
+        #region GetAvion
 
+
+        public static Avion GetAvion(int id)
+        {
+
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"SELECT Identifiant, Nom
+                FROM Avion 
+                WHERE Identifiant =" + id + ";";
+
+            command.Parameters.AddWithValue("Identifiant", id);
+            MySqlDataReader reader = command.ExecuteReader();
+            Avion a = null;
+            if (reader.Read())
+            {
+                a = new Avion();
+                a.Identifiant = reader.GetInt32("Identifiant");
+                a.Nom = reader.GetString("Nom");
+
+            }
+
+            connection.Close();
+            return a;
+        }
+        #endregion
 
         #region GetConstruct
 
@@ -210,11 +241,20 @@ namespace Aeroport.DAL
             command.CommandText = $@"
                                 INSERT INTO Avion(Nom) 
                                 VALUES(@nom);";
-
             command.Parameters.AddWithValue("@nom", avion.Nom);
-            int ajout = command.ExecuteNonQuery();
+            int result = command.ExecuteNonQuery();
+
+                command = new MySqlCommand();
+                command.Connection = connection;
+                command.CommandText = @"INSERT INTO avion(identifiantModele)VALUES(@identifiantModele)";
+                command.Parameters.AddWithValue("@identifiantModele", avion.IdentifiantModele);
+                
+                result = command.ExecuteNonQuery();
+            
+            
+           
             connection.Close();
-            return ajout;
+            return result;
 
         }
         #endregion

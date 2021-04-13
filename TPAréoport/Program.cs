@@ -16,7 +16,7 @@ namespace TPAreoport
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Aeroport());
+            Application.Run(new Avions());
         }
     }
 }
