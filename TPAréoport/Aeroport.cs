@@ -15,62 +15,45 @@ namespace TPAreoport
 {
     public partial class Avions : Form
     {
-       
-        
+
+
         public Avions()
         {
+
             InitializeComponent();
+
             List<Avion> avions = AeroportBdd.AllAvion();
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
             ListAvion.ValueMember = "Identifiant";
 
-            List<Modele> modele = AeroportBdd.AllModele();
-            ListModele.DataSource = modele;
-            ListModele.DisplayMember = "CompleteName";
-            ListModele.ValueMember = "Identifiant";
-
-            List<Constructeur> constructeurs = AeroportBdd.AllConstruct();
-            ListConstructeur.DataSource = constructeurs;
-            ListConstructeur.DisplayMember = "CompleteName";
-            ListConstructeur.ValueMember = "Identifiant";
-
         }
 
-        public void RefreshBooksListBox()
+        public void RefreshListBox()
         {
             List<Avion> avions = AeroportBdd.AllAvion();
+            List<Constructeur> constructeurs = AeroportBdd.AllConstruct();
             ListAvion.DataSource = null;
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
+
         }
 
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            Avion selectedAvion = (Avion)ListAvion.SelectedItem;
-            int idmodele = selectedAvion.IdentifiantModele;
-            Modele model = AeroportBdd.GetModele(idmodele);
-            int idconstruc = model.IdentifiantConstructeur;
-            Constructeur constr = AeroportBdd.GetConstruct(idconstruc);
-            ResultNom.Text = selectedAvion.Nom;
-            ResultVersion.Text = model.Version;
-            ResultMoteur.Text = model.NombreDeMoteur.ToString();
-            ResultConstructeur.Text = constr.Nom; 
-            
-        }
+            if (ListAvion.SelectedItem != null)
+            {
+                Avion selectedAvion = (Avion)ListAvion.SelectedItem;
+                int idmodele = selectedAvion.IdentifiantModele;
+                Modele model = AeroportBdd.GetModele(idmodele);
+                int idconstruc = model.IdentifiantConstructeur;
+                Constructeur constr = AeroportBdd.GetConstruct(idconstruc);
+                ResultNom.Text = selectedAvion.Nom;
+                ResultVersion.Text = model.Version;
+                ResultMoteur.Text = model.NombreDeMoteur.ToString();
+                ResultConstructeur.Text = constr.Nom;
+            }
 
-        private void ListModele_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Modele selectedModele = (Modele)ListModele.SelectedItem;
-            
-
-        }
-
-        private void ListConstructeur_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Constructeur selectedConstructeur = (Constructeur)ListConstructeur.SelectedItem;
-            
 
         }
 
@@ -78,6 +61,8 @@ namespace TPAreoport
         {
             AjoutModifSupprAvion form = new AjoutModifSupprAvion();
             form.ShowDialog();
+            RefreshListBox();
+
         }
     }
 }

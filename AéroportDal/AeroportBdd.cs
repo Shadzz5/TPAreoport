@@ -219,7 +219,37 @@ namespace Aeroport.DAL
             return m;
         }
         #endregion
-#endregion
+        public static List<Modele> GetFromModele(int id)
+        {
+
+
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection;
+            connection.Open();
+            command.CommandText = @"SELECT Identifiant, version, nombreMoteurs, identifiantConstructeur
+                FROM Modele
+                Where identifiantConstructeur =" + id + ";";
+
+            command.Parameters.AddWithValue("identifiantConstructeur", id);
+            MySqlDataReader reader = command.ExecuteReader();
+            Modele m = null;
+            List<Modele> modeles = new List<Modele>();
+            while (reader.Read())
+            {
+                m = new Modele();
+                m.Identifiant = reader.GetInt32("Identifiant");
+                m.IdentifiantConstructeur = reader.GetInt32("IdentifiantConstructeur");
+                m.NombreDeMoteur = reader.GetInt32("nombreMoteurs");
+                m.Version = reader.GetString("Version");
+                modeles.Add(m);
+            }
+
+            connection.Close();
+            return modeles;
+        }
+        #endregion
 
         #region Insert
 
@@ -384,13 +414,14 @@ namespace Aeroport.DAL
             command.Connection = connection;
 
 
-            command.CommandText = @"UPDATE Avion SET Identifiant = @Identifiant, Nom = @nom  
+            command.CommandText = @"UPDATE Avion SET IdentifiantModele = @identifiantModele, Identifiant = @Identifiant, Nom = @nom  
                                     WHERE Avion.Identifiant = @Identifiant;";
 
 
 
             command.Parameters.AddWithValue("@Identifiant", avion.Identifiant);
             command.Parameters.AddWithValue("@nom", avion.Nom);
+            command.Parameters.AddWithValue("@IdentifiantModele", avion.IdentifiantModele);
             int update = command.ExecuteNonQuery();
             connection.Close();
             return update;
@@ -459,78 +490,4 @@ namespace Aeroport.DAL
 
 }
 
-
-//        public static Livre Find(int id)
-//        {
-//            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-//            MySqlCommand command = new MySqlCommand();
-//            command.Connection = connection;
-//            connection.Open();
-//            command.CommandText = @"SELECT Identifiant, NombrePages, Titre, Edition, ISBN, DateEdition, DateLecture, Note, Resume, Commentaire
-//                FROM Livre
-//                WHERE Livre.Identifiant = @Identifiant;";
-
-//            command.Parameters.AddWithValue("@Identifiant", id);
-//            MySqlDataReader reader = command.ExecuteReader();
-//            Livre l = null;
-//            if (reader.Read())
-//            {
-//                l = new Livre();
-//                l.Identifiant = reader.GetInt32("Identifiant");
-//                l.ISBN = reader.GetString("ISBN");
-//                l.NombresPages = reader.GetInt32("NombrePages");
-//                l.Commentaire = reader.GetString("Commentaire");
-//                l.Titre = reader.GetString("Titre");
-//                l.Resume = reader.GetString("Resume");
-//                l.Edition = reader.GetString("Edition");
-//                l.DateLecture = reader.GetDateTime("DateLecture");
-//                l.DateEdition = reader.GetInt32("DateEdition");
-//                l.Note = reader.GetInt32("Note");
-
-
-//            }
-
-//            connection.Close();
-//            return l;
-
-//        }
-
-
-
-
-//        public static int Update(Livre livre)
-//        {
-
-//            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-//            connection.Open();
-
-//            MySqlCommand command = new MySqlCommand();
-//            command.Connection = connection;
-
-
-//            command.CommandText = @"UPDATE Livre SET Identifiant = @Identifiant, NombrePages = @nbpages, 
-//                                  Titre = @titre, Edition = @edition, ISBN = @isbn, DateEdition = @dateedition, 
-//                                  DateLecture = @datelecture, Note = @note, Resume = @resume, Commentaire = @commentaire
-
-//                WHERE Livre.Identifiant = @Identifiant;";
-
-//            command.Parameters.AddWithValue("@Identifiant", livre.Identifiant);
-//            command.Parameters.AddWithValue("@nbpages", livre.NombresPages);
-//            command.Parameters.AddWithValue("@titre", livre.Titre);
-//            command.Parameters.AddWithValue("@edition", livre.Edition);
-//            command.Parameters.AddWithValue("@isbn", livre.ISBN);
-//            command.Parameters.AddWithValue("@dateedition", livre.DateEdition);
-//            command.Parameters.AddWithValue("@datelecture", livre.DateLecture);
-//            command.Parameters.AddWithValue("@note", livre.Note);
-//            command.Parameters.AddWithValue("@resume", livre.Resume);
-//            command.Parameters.AddWithValue("@commentaire", livre.Commentaire);
-//            int ajout = command.ExecuteNonQuery();
-//            connection.Close();
-//            return ajout;
-
-//        }
-//    }
-//}
 

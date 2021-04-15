@@ -40,12 +40,20 @@ namespace TPAréoport
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ListAvion = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.Modèle = new System.Windows.Forms.Label();
+            this.Nom = new System.Windows.Forms.Label();
+            this.textBoxAvionNom = new System.Windows.Forms.TextBox();
+            this.Constructeur = new System.Windows.Forms.Label();
+            this.comboBoxConst = new System.Windows.Forms.ComboBox();
+            this.comboBoxModele = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.Tab.SuspendLayout();
             this.panel2.SuspendLayout();
             this.AjoutModifSup.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -156,14 +164,17 @@ namespace TPAréoport
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 438F));
             this.tableLayoutPanel1.Controls.Add(this.ListAvion, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(626, 299);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -173,8 +184,90 @@ namespace TPAréoport
             this.ListAvion.FormattingEnabled = true;
             this.ListAvion.Location = new System.Drawing.Point(3, 3);
             this.ListAvion.Name = "ListAvion";
-            this.ListAvion.Size = new System.Drawing.Size(620, 290);
+            this.ListAvion.Size = new System.Drawing.Size(182, 290);
             this.ListAvion.TabIndex = 0;
+            this.ListAvion.SelectedIndexChanged += new System.EventHandler(this.ListAvion_SelectedIndexChanged_1);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.Modèle, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.Nom, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxAvionNom, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Constructeur, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxConst, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxModele, 1, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(191, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(432, 293);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // Modèle
+            // 
+            this.Modèle.AutoSize = true;
+            this.Modèle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Modèle.Location = new System.Drawing.Point(3, 194);
+            this.Modèle.Name = "Modèle";
+            this.Modèle.Size = new System.Drawing.Size(210, 99);
+            this.Modèle.TabIndex = 11;
+            this.Modèle.Text = "Modèle";
+            this.Modèle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Nom
+            // 
+            this.Nom.AutoSize = true;
+            this.Nom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Nom.Location = new System.Drawing.Point(3, 0);
+            this.Nom.Name = "Nom";
+            this.Nom.Size = new System.Drawing.Size(210, 97);
+            this.Nom.TabIndex = 0;
+            this.Nom.Text = "Nom";
+            this.Nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxAvionNom
+            // 
+            this.textBoxAvionNom.Location = new System.Drawing.Point(219, 30);
+            this.textBoxAvionNom.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.textBoxAvionNom.Name = "textBoxAvionNom";
+            this.textBoxAvionNom.Size = new System.Drawing.Size(121, 20);
+            this.textBoxAvionNom.TabIndex = 7;
+            // 
+            // Constructeur
+            // 
+            this.Constructeur.AutoSize = true;
+            this.Constructeur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Constructeur.Location = new System.Drawing.Point(3, 97);
+            this.Constructeur.Name = "Constructeur";
+            this.Constructeur.Size = new System.Drawing.Size(210, 97);
+            this.Constructeur.TabIndex = 10;
+            this.Constructeur.Text = "Constructeur";
+            this.Constructeur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxConst
+            // 
+            this.comboBoxConst.FormattingEnabled = true;
+            this.comboBoxConst.Location = new System.Drawing.Point(219, 127);
+            this.comboBoxConst.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.comboBoxConst.Name = "comboBoxConst";
+            this.comboBoxConst.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxConst.TabIndex = 12;
+            this.comboBoxConst.SelectedIndexChanged += new System.EventHandler(this.comboBoxConst_SelectedIndexChanged);
+            // 
+            // comboBoxModele
+            // 
+            this.comboBoxModele.FormattingEnabled = true;
+            this.comboBoxModele.Location = new System.Drawing.Point(219, 224);
+            this.comboBoxModele.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.comboBoxModele.Name = "comboBoxModele";
+            this.comboBoxModele.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxModele.TabIndex = 13;
             // 
             // AjoutModifSupprAvion
             // 
@@ -190,6 +283,8 @@ namespace TPAréoport
             this.AjoutModifSup.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -207,5 +302,12 @@ namespace TPAréoport
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.ListBox ListAvion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label Nom;
+        private System.Windows.Forms.TextBox textBoxAvionNom;
+        private System.Windows.Forms.Label Constructeur;
+        private System.Windows.Forms.Label Modèle;
+        private System.Windows.Forms.ComboBox comboBoxConst;
+        private System.Windows.Forms.ComboBox comboBoxModele;
     }
 }

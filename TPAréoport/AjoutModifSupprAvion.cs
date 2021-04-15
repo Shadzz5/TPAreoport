@@ -22,31 +22,38 @@ namespace TPAréoport
             ListAvion.DisplayMember = "CompleteName";
             ListAvion.ValueMember = "Identifiant";
 
+            List<Modele> modele = AeroportBdd.AllModele();
+            comboBoxModele.DataSource = modele;
+            comboBoxModele.DisplayMember = "CompleteName";
+            comboBoxModele.ValueMember = "Identifiant";
+
+            List<Constructeur> constructeurs = AeroportBdd.AllConstruct();
+            comboBoxConst.DataSource = constructeurs;
+            comboBoxConst.DisplayMember = "CompleteName";
+            comboBoxConst.ValueMember = "Identifiant";
+
+
 
         }
-        public void RefreshBooksListBox()
+        public void RefreshListBox()
         {
             List<Avion> avions = AeroportBdd.AllAvion();
             ListAvion.DataSource = null;
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
         }
-        
 
-        private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
-        { 
-            Avion selectedAvion = (Avion)ListAvion.SelectedItem;
-           
-           
-           
-        }
-       
+
+   
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
             Ajout form = new Ajout();
             form.ShowDialog();
-
+            if (form.DialogResult == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void Supprimer_Click(object sender, EventArgs e)
@@ -55,17 +62,43 @@ namespace TPAréoport
             int idavion = selectedAvion.Identifiant;
             AeroportBdd.DeleteAvion(idavion);
 
-            RefreshBooksListBox();
+            RefreshListBox();
         }
-
-
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            ModifAvion form = new ModifAvion();
-            form.ShowDialog();
+            Avion avion = (Avion)ListAvion.SelectedItem;
+            avion.Nom = textBoxAvionNom.Text;
+            avion.IdentifiantModele = ((Modele)comboBoxModele.SelectedItem).Identifiant;
+            AeroportBdd.UpdateAvion(avion);
+            RefreshListBox();
+            ListAvion.SelectedValue = avion.Identifiant;
+        }
+
+        private void comboBoxConst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Constructeur selectedConstructeur = (Constructeur)comboBoxConst.SelectedItem;
+            comboBoxModele.DataSource = AeroportBdd.GetFromModele(((Constructeur)comboBoxConst.SelectedItem).Identifiant);
+            comboBoxModele.DisplayMember = "CompleteName";
+            comboBoxModele.ValueMember = "Identifiant";
+
         }
 
 
+
+        private void ListAvion_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (ListAvion.SelectedItem != null)
+            {
+                Avion selectedAvion = (Avion)ListAvion.SelectedItem;
+                textBoxAvionNom.Text = selectedAvion.Nom;
+
+                Modele selectedModele = AeroportBdd.GetModele(selectedAvion.IdentifiantModele);
+                comboBoxModele.SelectedValue = selectedModele.Identifiant;
+
+                Constructeur selectedConstructeur = AeroportBdd.GetConstruct(selectedModele.IdentifiantConstructeur);
+                comboBoxConst.SelectedValue = selectedConstructeur.Identifiant;
+            }
+        }
     }
 }
