@@ -238,7 +238,7 @@ namespace TPAreoport
             this.Controls.Add(this.panel1);
             this.Name = "Avions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Aéroport";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

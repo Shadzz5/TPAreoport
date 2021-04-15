@@ -16,7 +16,9 @@ namespace TPAreoport
     public partial class Avions : Form
     {
 
+        #region Avion
 
+        
         public Avions()
         {
 
@@ -28,7 +30,8 @@ namespace TPAreoport
             ListAvion.ValueMember = "Identifiant";
 
         }
-
+        #endregion
+        #region RefreshListBox
         public void RefreshListBox()
         {
             List<Avion> avions = AeroportBdd.AllAvion();
@@ -38,7 +41,10 @@ namespace TPAreoport
             ListAvion.DisplayMember = "CompleteName";
 
         }
+        #endregion
+        #region ListAvion
 
+        
         private void ListAvion_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ListAvion.SelectedItem != null)
@@ -56,14 +62,17 @@ namespace TPAreoport
 
 
         }
-
-        private void ButtonAvion_Click(object sender, EventArgs e)
+        #endregion
+        #region ButtonAvion
+ private void ButtonAvion_Click(object sender, EventArgs e)
         {
             AjoutModifSupprAvion form = new AjoutModifSupprAvion();
             form.ShowDialog();
             RefreshListBox();
 
         }
+        #endregion
+       
     }
 }
 

@@ -219,6 +219,9 @@ namespace Aeroport.DAL
             return m;
         }
         #endregion
+        #region GetFromModele
+
+        
         public static List<Modele> GetFromModele(int id)
         {
 
@@ -249,6 +252,7 @@ namespace Aeroport.DAL
             connection.Close();
             return modeles;
         }
+        #endregion
         #endregion
 
         #region Insert

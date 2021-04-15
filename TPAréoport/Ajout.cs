@@ -14,8 +14,14 @@ namespace TPAréoport
 {
     public partial class Ajout : Form
     {
-        public object Avion { get; internal set; }
+        #region Properiété
 
+        
+        public object Avion { get; internal set; }
+        #endregion
+        #region Ajout
+
+       
         public Ajout()
         {
             InitializeComponent();
@@ -24,7 +30,9 @@ namespace TPAréoport
             comboBoxConstructeur.DataSource = constructeurs;
             comboBoxConstructeur.DisplayMember = "CompleteName";
             comboBoxConstructeur.ValueMember = "Identifiant";
-        }
+        } 
+        #endregion
+        #region Enregistrement Avion
 
         private void Enregistrer_Click(object sender, EventArgs e)
         {
@@ -42,25 +50,25 @@ namespace TPAréoport
                 DialogResult = DialogResult.OK;
 
             }
-
-
         }
-
+        #endregion
+        #region Annuler
         private void Annuler_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
+        #endregion
+        #region Version
+
 
         private void comboBoxVersion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Modele selectedModele = (Modele)comboBoxVersion.SelectedItem;
 
             comboBoxVersion.SelectedItem = selectedModele.Version;
-
-
-
-
         }
+        #endregion
+        #region Constructeur
 
         private void comboBoxConstructeur_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -72,7 +80,7 @@ namespace TPAréoport
             comboBoxVersion.ValueMember = "Identifiant";
 
         }
-
+        #endregion
 
     }
 }

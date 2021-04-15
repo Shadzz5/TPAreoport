@@ -13,7 +13,7 @@ namespace TPAréoport
 {
     public partial class AjoutModifSupprAvion : Form
     {
-
+        #region AjoutModifSuppr
         public AjoutModifSupprAvion()
         {
             InitializeComponent();
@@ -35,6 +35,10 @@ namespace TPAréoport
 
 
         }
+        #endregion
+        #region RefreshListBox
+
+
         public void RefreshListBox()
         {
             List<Avion> avions = AeroportBdd.AllAvion();
@@ -42,8 +46,8 @@ namespace TPAréoport
             ListAvion.DataSource = avions;
             ListAvion.DisplayMember = "CompleteName";
         }
-
-
+        #endregion
+        #region Ajouter
 
 
         private void Ajouter_Click(object sender, EventArgs e)
@@ -55,6 +59,9 @@ namespace TPAréoport
                 this.DialogResult = DialogResult.OK;
             }
         }
+        #endregion
+        #region Suppression
+
 
         private void Supprimer_Click(object sender, EventArgs e)
         {
@@ -74,7 +81,8 @@ namespace TPAréoport
             }
 
         }
-
+        #endregion
+        #region Modifier
         private void Modifier_Click(object sender, EventArgs e)
         {
             DialogResult result1 = MessageBox.Show("Voulez-vous modifier", "Modification", MessageBoxButtons.YesNo);
@@ -93,6 +101,9 @@ namespace TPAréoport
             }
 
         }
+        #endregion
+        #region Constructeur
+
 
         private void comboBoxConst_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,7 +113,10 @@ namespace TPAréoport
             comboBoxModele.ValueMember = "Identifiant";
 
         }
+        #endregion
+        #region ListAvion
 
+      
         private void ListAvion_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (ListAvion.SelectedItem != null)
@@ -116,6 +130,7 @@ namespace TPAréoport
                 Constructeur selectedConstructeur = AeroportBdd.GetConstruct(selectedModele.IdentifiantConstructeur);
                 comboBoxConst.SelectedValue = selectedConstructeur.Identifiant;
             }
-        }
+        }  
+        #endregion
     }
 }
