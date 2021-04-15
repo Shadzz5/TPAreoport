@@ -29,6 +29,7 @@ namespace TPAréoport
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutModifSupprAvion));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Tab = new System.Windows.Forms.TableLayoutPanel();
             this.Avion = new System.Windows.Forms.Label();
@@ -287,8 +288,10 @@ namespace TPAréoport
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 506);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjoutModifSupprAvion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestion des avions ";
             this.panel1.ResumeLayout(false);
             this.Tab.ResumeLayout(false);
             this.Tab.PerformLayout();

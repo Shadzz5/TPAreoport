@@ -29,6 +29,7 @@ namespace TPAreoport
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Avions));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ResultNom = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@ namespace TPAreoport
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(979, 511);
+            this.panel1.Size = new System.Drawing.Size(979, 551);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -192,7 +193,7 @@ namespace TPAreoport
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.04167F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.95834F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(396, 511);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(396, 551);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // ListAvion
@@ -200,7 +201,7 @@ namespace TPAreoport
             this.ListAvion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ListAvion.FormattingEnabled = true;
             this.ListAvion.ItemHeight = 15;
-            this.ListAvion.Location = new System.Drawing.Point(6, 57);
+            this.ListAvion.Location = new System.Drawing.Point(6, 61);
             this.ListAvion.Name = "ListAvion";
             this.ListAvion.Size = new System.Drawing.Size(384, 364);
             this.ListAvion.TabIndex = 2;
@@ -213,7 +214,7 @@ namespace TPAreoport
             this.Avion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Avion.Location = new System.Drawing.Point(6, 3);
             this.Avion.Name = "Avion";
-            this.Avion.Size = new System.Drawing.Size(384, 48);
+            this.Avion.Size = new System.Drawing.Size(384, 52);
             this.Avion.TabIndex = 0;
             this.Avion.Text = "Avion";
             this.Avion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,7 +223,7 @@ namespace TPAreoport
             // 
             this.ButtonAvion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonAvion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
-            this.ButtonAvion.Location = new System.Drawing.Point(6, 446);
+            this.ButtonAvion.Location = new System.Drawing.Point(6, 486);
             this.ButtonAvion.Name = "ButtonAvion";
             this.ButtonAvion.Size = new System.Drawing.Size(384, 59);
             this.ButtonAvion.TabIndex = 3;
@@ -234,8 +235,9 @@ namespace TPAreoport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 511);
+            this.ClientSize = new System.Drawing.Size(979, 551);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Avions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aéroport";
