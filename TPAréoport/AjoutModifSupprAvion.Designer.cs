@@ -62,7 +62,7 @@ namespace TPAréoport
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(635, 419);
+            this.panel1.Size = new System.Drawing.Size(867, 506);
             this.panel1.TabIndex = 1;
             // 
             // Tab
@@ -81,16 +81,17 @@ namespace TPAréoport
             this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.95834F));
             this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.Tab.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Tab.Size = new System.Drawing.Size(638, 419);
+            this.Tab.Size = new System.Drawing.Size(867, 506);
             this.Tab.TabIndex = 3;
             // 
             // Avion
             // 
             this.Avion.AutoSize = true;
             this.Avion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Avion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Avion.Location = new System.Drawing.Point(6, 3);
             this.Avion.Name = "Avion";
-            this.Avion.Size = new System.Drawing.Size(626, 37);
+            this.Avion.Size = new System.Drawing.Size(855, 47);
             this.Avion.TabIndex = 0;
             this.Avion.Text = "Avion";
             this.Avion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,9 +100,9 @@ namespace TPAréoport
             // 
             this.panel2.Controls.Add(this.AjoutModifSup);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(6, 354);
+            this.panel2.Location = new System.Drawing.Point(6, 441);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 59);
+            this.panel2.Size = new System.Drawing.Size(855, 59);
             this.panel2.TabIndex = 3;
             // 
             // AjoutModifSup
@@ -118,15 +119,16 @@ namespace TPAréoport
             this.AjoutModifSup.Name = "AjoutModifSup";
             this.AjoutModifSup.RowCount = 1;
             this.AjoutModifSup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.AjoutModifSup.Size = new System.Drawing.Size(626, 59);
+            this.AjoutModifSup.Size = new System.Drawing.Size(855, 59);
             this.AjoutModifSup.TabIndex = 0;
             // 
             // Ajouter
             // 
             this.Ajouter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Ajouter.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Ajouter.Location = new System.Drawing.Point(3, 3);
             this.Ajouter.Name = "Ajouter";
-            this.Ajouter.Size = new System.Drawing.Size(202, 53);
+            this.Ajouter.Size = new System.Drawing.Size(279, 53);
             this.Ajouter.TabIndex = 0;
             this.Ajouter.Text = "Ajouter";
             this.Ajouter.UseVisualStyleBackColor = true;
@@ -135,9 +137,10 @@ namespace TPAréoport
             // Modifier
             // 
             this.Modifier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Modifier.Location = new System.Drawing.Point(211, 3);
+            this.Modifier.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
+            this.Modifier.Location = new System.Drawing.Point(288, 3);
             this.Modifier.Name = "Modifier";
-            this.Modifier.Size = new System.Drawing.Size(202, 53);
+            this.Modifier.Size = new System.Drawing.Size(279, 53);
             this.Modifier.TabIndex = 1;
             this.Modifier.Text = "Modifier";
             this.Modifier.UseVisualStyleBackColor = true;
@@ -146,9 +149,10 @@ namespace TPAréoport
             // Supprimer
             // 
             this.Supprimer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Supprimer.Location = new System.Drawing.Point(419, 3);
+            this.Supprimer.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
+            this.Supprimer.Location = new System.Drawing.Point(573, 3);
             this.Supprimer.Name = "Supprimer";
-            this.Supprimer.Size = new System.Drawing.Size(204, 53);
+            this.Supprimer.Size = new System.Drawing.Size(279, 53);
             this.Supprimer.TabIndex = 2;
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseVisualStyleBackColor = true;
@@ -157,16 +161,16 @@ namespace TPAréoport
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Location = new System.Drawing.Point(6, 46);
+            this.panel3.Location = new System.Drawing.Point(6, 56);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(626, 299);
+            this.panel3.Size = new System.Drawing.Size(855, 376);
             this.panel3.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 438F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 555F));
             this.tableLayoutPanel1.Controls.Add(this.ListAvion, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -176,15 +180,17 @@ namespace TPAréoport
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(626, 299);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 376);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ListAvion
             // 
+            this.ListAvion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ListAvion.FormattingEnabled = true;
+            this.ListAvion.ItemHeight = 15;
             this.ListAvion.Location = new System.Drawing.Point(3, 3);
             this.ListAvion.Name = "ListAvion";
-            this.ListAvion.Size = new System.Drawing.Size(182, 290);
+            this.ListAvion.Size = new System.Drawing.Size(294, 364);
             this.ListAvion.TabIndex = 0;
             this.ListAvion.SelectedIndexChanged += new System.EventHandler(this.ListAvion_SelectedIndexChanged_1);
             // 
@@ -199,23 +205,24 @@ namespace TPAréoport
             this.tableLayoutPanel2.Controls.Add(this.Constructeur, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxConst, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxModele, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(191, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(303, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(432, 293);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(549, 353);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // Modèle
             // 
             this.Modèle.AutoSize = true;
             this.Modèle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Modèle.Location = new System.Drawing.Point(3, 194);
+            this.Modèle.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
+            this.Modèle.Location = new System.Drawing.Point(3, 234);
             this.Modèle.Name = "Modèle";
-            this.Modèle.Size = new System.Drawing.Size(210, 99);
+            this.Modèle.Size = new System.Drawing.Size(268, 119);
             this.Modèle.TabIndex = 11;
             this.Modèle.Text = "Modèle";
             this.Modèle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,58 +231,64 @@ namespace TPAréoport
             // 
             this.Nom.AutoSize = true;
             this.Nom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Nom.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Nom.Location = new System.Drawing.Point(3, 0);
             this.Nom.Name = "Nom";
-            this.Nom.Size = new System.Drawing.Size(210, 97);
+            this.Nom.Size = new System.Drawing.Size(268, 117);
             this.Nom.TabIndex = 0;
             this.Nom.Text = "Nom";
             this.Nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxAvionNom
             // 
-            this.textBoxAvionNom.Location = new System.Drawing.Point(219, 30);
+            this.textBoxAvionNom.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
+            this.textBoxAvionNom.Location = new System.Drawing.Point(277, 30);
             this.textBoxAvionNom.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.textBoxAvionNom.Name = "textBoxAvionNom";
-            this.textBoxAvionNom.Size = new System.Drawing.Size(121, 20);
+            this.textBoxAvionNom.Size = new System.Drawing.Size(121, 21);
             this.textBoxAvionNom.TabIndex = 7;
             // 
             // Constructeur
             // 
             this.Constructeur.AutoSize = true;
             this.Constructeur.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Constructeur.Location = new System.Drawing.Point(3, 97);
+            this.Constructeur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
+            this.Constructeur.Location = new System.Drawing.Point(3, 117);
             this.Constructeur.Name = "Constructeur";
-            this.Constructeur.Size = new System.Drawing.Size(210, 97);
+            this.Constructeur.Size = new System.Drawing.Size(268, 117);
             this.Constructeur.TabIndex = 10;
             this.Constructeur.Text = "Constructeur";
             this.Constructeur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBoxConst
             // 
+            this.comboBoxConst.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.comboBoxConst.FormattingEnabled = true;
-            this.comboBoxConst.Location = new System.Drawing.Point(219, 127);
+            this.comboBoxConst.Location = new System.Drawing.Point(277, 147);
             this.comboBoxConst.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.comboBoxConst.Name = "comboBoxConst";
-            this.comboBoxConst.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxConst.Size = new System.Drawing.Size(121, 23);
             this.comboBoxConst.TabIndex = 12;
             this.comboBoxConst.SelectedIndexChanged += new System.EventHandler(this.comboBoxConst_SelectedIndexChanged);
             // 
             // comboBoxModele
             // 
+            this.comboBoxModele.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.comboBoxModele.FormattingEnabled = true;
-            this.comboBoxModele.Location = new System.Drawing.Point(219, 224);
+            this.comboBoxModele.Location = new System.Drawing.Point(277, 264);
             this.comboBoxModele.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.comboBoxModele.Name = "comboBoxModele";
-            this.comboBoxModele.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxModele.Size = new System.Drawing.Size(121, 23);
             this.comboBoxModele.TabIndex = 13;
             // 
             // AjoutModifSupprAvion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 419);
+            this.ClientSize = new System.Drawing.Size(867, 506);
             this.Controls.Add(this.panel1);
             this.Name = "AjoutModifSupprAvion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.Tab.ResumeLayout(false);
             this.Tab.PerformLayout();

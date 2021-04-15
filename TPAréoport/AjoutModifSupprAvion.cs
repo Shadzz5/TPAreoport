@@ -44,7 +44,7 @@ namespace TPAréoport
         }
 
 
-   
+
 
         private void Ajouter_Click(object sender, EventArgs e)
         {
@@ -58,21 +58,40 @@ namespace TPAréoport
 
         private void Supprimer_Click(object sender, EventArgs e)
         {
-            Avion selectedAvion = (Avion)ListAvion.SelectedItem;
-            int idavion = selectedAvion.Identifiant;
-            AeroportBdd.DeleteAvion(idavion);
 
-            RefreshListBox();
+            DialogResult result1 = MessageBox.Show("Voulez-vous supprimer", "Suppression", MessageBoxButtons.YesNo);
+            if (result1 == DialogResult.Yes)
+            {
+                Avion selectedAvion = (Avion)ListAvion.SelectedItem;
+                int idavion = selectedAvion.Identifiant;
+                AeroportBdd.DeleteAvion(idavion);
+                RefreshListBox();
+                ListAvion.SelectedIndex = ListAvion.Items.Count - 1;
+            }
+            if (result1 == DialogResult.No)
+            {
+
+            }
+
         }
 
         private void Modifier_Click(object sender, EventArgs e)
         {
-            Avion avion = (Avion)ListAvion.SelectedItem;
-            avion.Nom = textBoxAvionNom.Text;
-            avion.IdentifiantModele = ((Modele)comboBoxModele.SelectedItem).Identifiant;
-            AeroportBdd.UpdateAvion(avion);
-            RefreshListBox();
-            ListAvion.SelectedValue = avion.Identifiant;
+            DialogResult result1 = MessageBox.Show("Voulez-vous modifier", "Modification", MessageBoxButtons.YesNo);
+            if (result1 == DialogResult.Yes)
+            {
+                Avion avion = (Avion)ListAvion.SelectedItem;
+                avion.Nom = textBoxAvionNom.Text;
+                avion.IdentifiantModele = ((Modele)comboBoxModele.SelectedItem).Identifiant;
+                AeroportBdd.UpdateAvion(avion);
+                RefreshListBox();
+                ListAvion.SelectedValue = avion.Identifiant;
+            }
+            if (result1 == DialogResult.No)
+            {
+
+            }
+
         }
 
         private void comboBoxConst_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,8 +102,6 @@ namespace TPAréoport
             comboBoxModele.ValueMember = "Identifiant";
 
         }
-
-
 
         private void ListAvion_SelectedIndexChanged_1(object sender, EventArgs e)
         {

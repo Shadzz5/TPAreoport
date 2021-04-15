@@ -85,6 +85,7 @@ namespace TPAreoport
             // 
             this.ResultNom.AutoSize = true;
             this.ResultNom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResultNom.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ResultNom.Location = new System.Drawing.Point(291, 0);
             this.ResultNom.Name = "ResultNom";
             this.ResultNom.Size = new System.Drawing.Size(283, 127);
@@ -96,6 +97,7 @@ namespace TPAreoport
             // 
             this.ResultVersion.AutoSize = true;
             this.ResultVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResultVersion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ResultVersion.Location = new System.Drawing.Point(291, 127);
             this.ResultVersion.Name = "ResultVersion";
             this.ResultVersion.Size = new System.Drawing.Size(283, 127);
@@ -107,6 +109,7 @@ namespace TPAreoport
             // 
             this.Version.AutoSize = true;
             this.Version.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Version.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Version.Location = new System.Drawing.Point(3, 127);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(282, 127);
@@ -118,6 +121,7 @@ namespace TPAreoport
             // 
             this.ResultConstructeur.AutoSize = true;
             this.ResultConstructeur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResultConstructeur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ResultConstructeur.Location = new System.Drawing.Point(291, 254);
             this.ResultConstructeur.Name = "ResultConstructeur";
             this.ResultConstructeur.Size = new System.Drawing.Size(283, 127);
@@ -129,6 +133,7 @@ namespace TPAreoport
             // 
             this.NombreDeMoteur.AutoSize = true;
             this.NombreDeMoteur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NombreDeMoteur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.NombreDeMoteur.Location = new System.Drawing.Point(3, 381);
             this.NombreDeMoteur.Name = "NombreDeMoteur";
             this.NombreDeMoteur.Size = new System.Drawing.Size(282, 127);
@@ -140,6 +145,7 @@ namespace TPAreoport
             // 
             this.ResultMoteur.AutoSize = true;
             this.ResultMoteur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResultMoteur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ResultMoteur.Location = new System.Drawing.Point(291, 381);
             this.ResultMoteur.Name = "ResultMoteur";
             this.ResultMoteur.Size = new System.Drawing.Size(283, 127);
@@ -151,6 +157,7 @@ namespace TPAreoport
             // 
             this.Nom.AutoSize = true;
             this.Nom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Nom.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Nom.Location = new System.Drawing.Point(3, 0);
             this.Nom.Name = "Nom";
             this.Nom.Size = new System.Drawing.Size(282, 127);
@@ -162,6 +169,7 @@ namespace TPAreoport
             // 
             this.Constructeur.AutoSize = true;
             this.Constructeur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Constructeur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Constructeur.Location = new System.Drawing.Point(3, 254);
             this.Constructeur.Name = "Constructeur";
             this.Constructeur.Size = new System.Drawing.Size(282, 127);
@@ -189,10 +197,12 @@ namespace TPAreoport
             // 
             // ListAvion
             // 
+            this.ListAvion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ListAvion.FormattingEnabled = true;
+            this.ListAvion.ItemHeight = 15;
             this.ListAvion.Location = new System.Drawing.Point(6, 57);
             this.ListAvion.Name = "ListAvion";
-            this.ListAvion.Size = new System.Drawing.Size(384, 368);
+            this.ListAvion.Size = new System.Drawing.Size(384, 364);
             this.ListAvion.TabIndex = 2;
             this.ListAvion.SelectedIndexChanged += new System.EventHandler(this.ListAvion_SelectedIndexChanged);
             // 
@@ -200,6 +210,7 @@ namespace TPAreoport
             // 
             this.Avion.AutoSize = true;
             this.Avion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Avion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Avion.Location = new System.Drawing.Point(6, 3);
             this.Avion.Name = "Avion";
             this.Avion.Size = new System.Drawing.Size(384, 48);
@@ -210,6 +221,7 @@ namespace TPAreoport
             // ButtonAvion
             // 
             this.ButtonAvion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonAvion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.ButtonAvion.Location = new System.Drawing.Point(6, 446);
             this.ButtonAvion.Name = "ButtonAvion";
             this.ButtonAvion.Size = new System.Drawing.Size(384, 59);
@@ -225,6 +237,7 @@ namespace TPAreoport
             this.ClientSize = new System.Drawing.Size(979, 511);
             this.Controls.Add(this.panel1);
             this.Name = "Avions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

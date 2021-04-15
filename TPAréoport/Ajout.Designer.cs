@@ -81,16 +81,18 @@ namespace TPAréoport
             // NomAvion
             // 
             this.NomAvion.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NomAvion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.NomAvion.Location = new System.Drawing.Point(339, 31);
             this.NomAvion.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.NomAvion.Name = "NomAvion";
-            this.NomAvion.Size = new System.Drawing.Size(122, 20);
+            this.NomAvion.Size = new System.Drawing.Size(122, 21);
             this.NomAvion.TabIndex = 7;
             // 
             // Nom
             // 
             this.Nom.AutoSize = true;
             this.Nom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Nom.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nom.Location = new System.Drawing.Point(4, 1);
             this.Nom.Name = "Nom";
             this.Nom.Size = new System.Drawing.Size(328, 103);
@@ -101,6 +103,7 @@ namespace TPAréoport
             // Enregistrer
             // 
             this.Enregistrer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Enregistrer.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Enregistrer.Location = new System.Drawing.Point(4, 316);
             this.Enregistrer.Name = "Enregistrer";
             this.Enregistrer.Size = new System.Drawing.Size(328, 97);
@@ -112,6 +115,7 @@ namespace TPAréoport
             // Annuler
             // 
             this.Annuler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Annuler.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Annuler.Location = new System.Drawing.Point(339, 316);
             this.Annuler.Name = "Annuler";
             this.Annuler.Size = new System.Drawing.Size(328, 97);
@@ -124,6 +128,7 @@ namespace TPAréoport
             // 
             this.Version.AutoSize = true;
             this.Version.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Version.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Version.Location = new System.Drawing.Point(4, 209);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(328, 103);
@@ -135,6 +140,7 @@ namespace TPAréoport
             // 
             this.Constructeur.AutoSize = true;
             this.Constructeur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Constructeur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.Constructeur.Location = new System.Drawing.Point(4, 105);
             this.Constructeur.Name = "Constructeur";
             this.Constructeur.Size = new System.Drawing.Size(328, 103);
@@ -144,21 +150,23 @@ namespace TPAréoport
             // 
             // comboBoxVersion
             // 
+            this.comboBoxVersion.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.comboBoxVersion.FormattingEnabled = true;
             this.comboBoxVersion.Location = new System.Drawing.Point(339, 239);
             this.comboBoxVersion.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.comboBoxVersion.Name = "comboBoxVersion";
-            this.comboBoxVersion.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxVersion.Size = new System.Drawing.Size(121, 23);
             this.comboBoxVersion.TabIndex = 11;
             this.comboBoxVersion.SelectedIndexChanged += new System.EventHandler(this.comboBoxVersion_SelectedIndexChanged);
             // 
             // comboBoxConstructeur
             // 
+            this.comboBoxConstructeur.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F);
             this.comboBoxConstructeur.FormattingEnabled = true;
             this.comboBoxConstructeur.Location = new System.Drawing.Point(339, 135);
             this.comboBoxConstructeur.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.comboBoxConstructeur.Name = "comboBoxConstructeur";
-            this.comboBoxConstructeur.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxConstructeur.Size = new System.Drawing.Size(121, 23);
             this.comboBoxConstructeur.TabIndex = 12;
             this.comboBoxConstructeur.SelectedIndexChanged += new System.EventHandler(this.comboBoxConstructeur_SelectedIndexChanged);
             // 
@@ -169,6 +177,7 @@ namespace TPAréoport
             this.ClientSize = new System.Drawing.Size(671, 417);
             this.Controls.Add(this.panel1);
             this.Name = "Ajout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
